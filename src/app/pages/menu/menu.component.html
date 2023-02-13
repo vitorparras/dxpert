@@ -1,0 +1,68 @@
+<p>menu works!</p>
+<div class="sidebar-wrapper">
+  <div class="logo" style="display: flex; justify-content: center">
+    <img
+      src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/imgs/logo1.png"
+      alt=""
+      class="simple-text"
+    />
+  </div>
+
+  <ul class="nav">
+    <li>
+      <!--class="active"-->
+      <a href="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/index.php">
+        <i class="pe-7s-graph"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/Pages/MeuUser/meuUsuario.php"
+      >
+        <i class="pe-7s-user"></i>
+        <p>Meu Perfil</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/Pages/User/listarUser.php"
+      >
+        <i class="pe-7s-note2"></i>
+        <p>Usuarios</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/Pages/Simulacoes/listarSimulacoes.php"
+      >
+        <i class="pe-7s-news-paper"></i>
+        <p>Simulações</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/Pages/Acompanhamento/acompanhamento.php"
+      >
+        <i class="pe-7s-science"></i>
+        <p>Acompanhamentos</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/Pages/Acompanhamento/acompanhamento.php"
+      >
+        <i class="pe-7s-settings"></i>
+        <p>Configurações</p>
+      </a>
+    </li>
+    <li>
+      <a
+        href="<?php echo ($_SESSION['BaseUrl']) ?>Backend/Usuarios/Auth/logout.php"
+      >
+        <i class="pe-7s-power"></i>
+        <p>Sair</p>
+      </a>
+    </li>
+  </ul>
+</div>
