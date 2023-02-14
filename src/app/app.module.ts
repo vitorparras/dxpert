@@ -17,6 +17,7 @@ import { MenuComponent } from './pages//menu/menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BaseComponent } from './pages/shared/base/base.component';
 import { AngularTiltModule } from 'angular-tilt';
+import { ComponentsModule } from './pages/shared/components/components.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AngularTiltModule } from 'angular-tilt';
     MenuComponent,
     HomeComponent,
     BaseComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { AngularTiltModule } from 'angular-tilt';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    AngularTiltModule
+    AngularTiltModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,11 +5,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { BaseComponent } from './pages/shared/base/base.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
   {
-    path: '',
-    component: BaseComponent,
-    children: [{ path: '', component: HomeComponent }],
+    path: '', redirectTo: 'login', pathMatch: 'full',
+  },
+  { 
+    path: 'login', component: LoginComponent 
+  },
+  {
+    path: 'home', component: HomeComponent,
   },
 ];
 
