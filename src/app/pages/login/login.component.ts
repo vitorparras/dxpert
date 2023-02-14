@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
-import {vendors} from 'vendors'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  public hide = true;
   ngOnInit() {
     $(document).ready(function () {
       var animating = false,
         submitPhase1 = 1100,
         submitPhase2 = 400,
         logoutPhase1 = 800,
-        $login = $(".login"),
-        $app = $(".app");
-    
-      function ripple(elem:any, e:any) {
-        $(".ripple").remove();
+        $login = $('.login'),
+        $app = $('.app');
+
+      function ripple(elem: any, e: any) {
+        $('.ripple').remove();
         var elTop = elem.offset().top,
           elLeft = elem.offset().left,
           x = e.pageX - elLeft,
@@ -27,50 +27,47 @@ export class LoginComponent {
         $ripple.css({ top: y, left: x });
         elem.append($ripple);
       }
-    
-      $(document).on("click", ".login__submit", function (e) {
+
+      $(document).on('click', '.login__submit', function (e) {
         if (animating) return;
         animating = true;
         var that = this;
         ripple($(that), e);
-        $(that).addClass("processing");
+        $(that).addClass('processing');
         setTimeout(function () {
-          $(that).addClass("success");
+          $(that).addClass('success');
           setTimeout(function () {
             $app.show();
-            $app.css("top");
-            $app.addClass("active");
+            $app.css('top');
+            $app.addClass('active');
           }, submitPhase2 - 70);
           setTimeout(function () {
             $login.hide();
-            $login.addClass("inactive");
+            $login.addClass('inactive');
             animating = false;
-            $(that).removeClass("success processing");
+            $(that).removeClass('success processing');
           }, submitPhase2);
         }, submitPhase1);
       });
-    
-      $(document).on("click", ".app__logout", function (e) {
+
+      $(document).on('click', '.app__logout', function (e) {
         if (animating) return;
-        $(".ripple").remove();
+        $('.ripple').remove();
         animating = true;
         var that = this;
-        $(that).addClass("clicked");
+        $(that).addClass('clicked');
         setTimeout(function () {
-          $app.removeClass("active");
+          $app.removeClass('active');
           $login.show();
-          $login.css("top");
-          $login.removeClass("inactive");
+          $login.css('top');
+          $login.removeClass('inactive');
         }, logoutPhase1 - 120);
         setTimeout(function () {
           $app.hide();
           animating = false;
-          $(that).removeClass("clicked");
+          $(that).removeClass('clicked');
         }, logoutPhase1);
       });
     });
-    
-
-
   }
 }

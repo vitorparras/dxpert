@@ -13,20 +13,28 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MenuComponent } from './pages//menu/menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BaseComponent } from './pages/shared/base/base.component';
 import { AngularTiltModule } from 'angular-tilt';
 import { ComponentsModule } from './pages/shared/components/components.module';
 
+import { ChartsModule } from 'ng2-charts';
+
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IndexComponent } from './pages/dashboard/index/index.component';
+import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/list-usuarios.component';
+import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/list-usuario.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuComponent,
     HomeComponent,
-    BaseComponent
-    
+    BaseComponent,
+    IndexComponent,
+    ListUsuariosComponent,
+    ListUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,10 @@ import { ComponentsModule } from './pages/shared/components/components.module';
     ReactiveFormsModule,
     MatIconModule,
     AngularTiltModule,
-    ComponentsModule
+    ComponentsModule,
+    FontAwesomeModule,
+    ChartsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
