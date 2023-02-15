@@ -1,49 +1,72 @@
 <div class="container-login100">
-    <div class="demo">
-      <div class="login">
-
-        <div class="limiter">
-            <div class="wrap-login100" data-tilt aTilt>
-              <div class="login100-pic js-tilt " >
-                <img src="/assets/imgs/login/logo1.png" alt="IMG">
-              </div>
-            </div>
-        </div>
-
-        <div class="login__form">
-          <div class="login__row">
-            <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
-              <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
-            </svg>
-            <input type="text" class="login__input name" placeholder="Email"/>
+  <div class="demo">
+    <div class="login">
+      <div class="limiter">
+        <div class="wrap-login100" data-tilt aTilt>
+          <div class="login100-pic js-tilt">
+            <img src="/assets/imgs/login/logo1.png" alt="IMG" />
           </div>
-          <div class="login__row olhomenu">
-            <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
-              <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
-            </svg>
-            <input type="password" class="login__input pass" matInput [type]="hide ? 'password' : 'text'" placeholder="Senha"/>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </div>
-          <button type="button" class="login__submit">Login</button>
-          <p class="login__signup">Problemas ao logar ou não possui uma conta? Entre em contato contato com o Admin!</p>
         </div>
       </div>
-      <div class="app">
-        <div class="app__top">
-        
-          <p class="app__hello">Bom dia!</p>
-          <p class="app__hello">Login realizado com sucesso!</p>
-          <p class="app__hello">Redirecionando...</p>
-             
-        </div>
-        
-        <div class="app__logout">
-          <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
-            <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12"/>
+
+      <div class="login__form">
+        <div class="login__row">
+          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+            <path
+              d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8"
+            />
           </svg>
+          <input
+            type="email"
+            class="login__input name"
+            placeholder="Email"
+            id="email"
+          />
         </div>
+        <div class="login__row olhomenu">
+          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+            <path
+              d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0"
+            />
+          </svg>
+          <input
+            type="password"
+            class="login__input pass"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            placeholder="Senha"
+            id="senha"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </div>
+        <button type="button" class="login__submit" (click)="logar()">
+          Login
+        </button>
+        <p class="login__signup">
+          Problemas ao logar ou não possui uma conta? Entre em contato contato
+          com o Admin!
+        </p>
+      </div>
+    </div>
+    <div class="app">
+      <div class="app__top">
+        <p class="app__hello">{{ message }}</p>
+      </div>
+
+      <div class="app__logout" id="btncancel">
+        <div
+          class="fa-solid"
+          [ngClass]="sucesso ? 'fa-circle-check' : 'fa-xmark'"
+        ></div>
       </div>
     </div>
   </div>
+</div>

@@ -1,5 +1,5 @@
-export interface IUsuario{
-    id: string,
-    email: string;
-    senha: string
-  }
+export interface IUsuario {
+  id?: string | undefined | null;
+  email: string | undefined;
+  senha: string | undefined;
+}

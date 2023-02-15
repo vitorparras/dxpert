@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { IUsuario } from 'src/app/interfaces/IUsuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   public hide = true;
+  public message = '';
+  public sucesso = false;
+
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
+
   ngOnInit() {
     $(document).ready(function () {
       var animating = false,
@@ -68,6 +76,31 @@ export class LoginComponent {
           $(that).removeClass('clicked');
         }, logoutPhase1);
       });
+    });
+  }
+
+  public logar() {
+    const usuario: IUsuario = {
+      email: $('#email').val()?.toString(),
+      senha: $('#senha').val()?.toString(),
+    };
+    this.usuarioService.logar(usuario).subscribe((response) => {
+      var btn = document.getElementById('btncancel');
+      this.sucesso = response.sucesso;
+      if (response.sucesso) {
+        this.message = 'Login realizado com sucesso!';
+        setTimeout(() => {
+          btn?.click();
+          setTimeout(() => {
+            this.router.navigate(['index']);
+          }, 700);
+        }, 3700);
+      } else {
+        this.message = 'Erro ao realizar o Login!';
+        setTimeout(() => {
+          btn?.click();
+        }, 3700);
+      }
     });
   }
 }

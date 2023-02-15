@@ -26,6 +26,11 @@ import { IndexComponent } from './pages/dashboard/index/index.component';
 import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/list-usuarios.component';
 import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/list-usuario.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +55,10 @@ import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/li
     AngularTiltModule,
     ComponentsModule,
     FontAwesomeModule,
-    ChartsModule
-
+    ChartsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
