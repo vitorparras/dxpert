@@ -27,9 +27,11 @@ import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/
 import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/list-usuario.component';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AddUpdateUserComponent } from './pages/dashboard/usuarios/add-update-user/add-update-user.component';
 
-
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { SenhaAlterarDialogComponent } from './pages/dialog/senha-alterar-dialog/senha-alterar-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +40,18 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     HomeComponent,
     BaseComponent,
     IndexComponent,
+
+    //usuarios
     ListUsuariosComponent,
     ListUsuarioComponent,
+    AddUpdateUserComponent,
+    SenhaAlterarDialogComponent,
+
+    // cadastros
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -56,7 +68,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     ComponentsModule,
     FontAwesomeModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
