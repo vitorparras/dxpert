@@ -1,28 +1,56 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome",
-      "request": "launch",
-      "type": "pwa-chrome",
-      "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}"
-    },
-
-    {
-      "name": "ng serve",
-      "type": "pwa-chrome",
-      "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
-    },
-    {
-      "name": "ng test",
+      "name": "Chrome",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///*": "${webRoot}/*"
+      },
+      "sourceMaps": true,
+      "runtimeArgs": [
+        "--disable-session-crashed-bubble"
+      ],
+      "disableNetworkCache": true,
+      "disableSeccompFilter": true,
+      "userDataDir": "${workspaceFolder}/.vscode/chrome",
+      "env": {
+        "CHROME_LOG_FILE": "${workspaceFolder}/.vscode/chrome/chrome.log"
+      },
+      "args": [
+        "--disable-extensions",
+        "--disable-gpu",
+        "--remote-debugging-port=9222",
+        "--no-sandbox",
+        "--disable-web-security",
+        "--user-data-dir=${workspaceFolder}/.vscode/chrome",
+        "--disable-dev-shm-usage",
+        "--disable-software-rasterizer",
+        "--disable-background-networking",
+        "--disable-background-timer-throttling",
+        "--disable-breakpad",
+        "--disable-client-side-phishing-detection",
+        "--disable-default-apps",
+        "--disable-dev-shm-usage",
+        "--disable-extensions",
+        "--disable-features=site-per-process",
+        "--disable-hang-monitor",
+        "--disable-ipc-flooding-protection",
+        "--disable-popup-blocking",
+        "--disable-prompt-on-repost",
+        "--disable-renderer-backgrounding",
+        "--disable-sync",
+        "--disable-translate",
+        "--metrics-recording-only",
+        "--no-first-run",
+        "--safebrowsing-disable-auto-update",
+        "--mute-audio",
+        "--no-default-browser-check",
+        "--disable-session-crashed-bubble"
+      ]
     }
   ]
 }

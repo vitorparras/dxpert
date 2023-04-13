@@ -81,8 +81,8 @@ export class LoginComponent implements OnInit {
 
   public logar() {
     const usuario: IUsuario = {
-      email: $('#email').val()?.toString(),
-      senha: $('#senha').val()?.toString(),
+      Email: $('#Email').val()?.toString(),
+      Senha: $('#Senha').val()?.toString(),
     };
     this.usuarioService.logar(usuario).subscribe((response) => {
       var btn = document.getElementById('btncancel');

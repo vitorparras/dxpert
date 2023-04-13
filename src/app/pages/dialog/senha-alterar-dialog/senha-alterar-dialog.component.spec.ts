@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SenhaAlterarDialogComponent } from './senha-alterar-dialog.component';
+import { SenhaAlterarDialogComponent } from './Senha-alterar-dialog.component';
 
 describe('SenhaAlterarDialogComponent', () => {
   let component: SenhaAlterarDialogComponent;

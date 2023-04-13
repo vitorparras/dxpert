@@ -3,9 +3,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UsuarioModel } from 'src/app/domain/models/usuariomodel';
 
 @Component({
-  selector: 'app-senha-alterar-dialog',
-  templateUrl: './senha-alterar-dialog.component.html',
-  styleUrls: ['./senha-alterar-dialog.component.css']
+  selector: 'app-Senha-alterar-dialog',
+  templateUrl: './Senha-alterar-dialog.component.html',
+  styleUrls: ['./Senha-alterar-dialog.component.css']
 })
 export class SenhaAlterarDialogComponent {
 

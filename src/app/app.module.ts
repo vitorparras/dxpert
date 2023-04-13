@@ -31,7 +31,7 @@ import { AddUpdateUserComponent } from './pages/dashboard/usuarios/add-update-us
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import { SenhaAlterarDialogComponent } from './pages/dialog/senha-alterar-dialog/senha-alterar-dialog.component';
+import { SenhaAlterarDialogComponent } from './pages/dialog/Senha-alterar-dialog/Senha-alterar-dialog.component';
 
 @NgModule({
   declarations: [

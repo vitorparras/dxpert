@@ -3,7 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UsuarioModel } from 'src/app/domain/models/usuariomodel';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SenhaAlterarDialogComponent } from 'src/app/pages/dialog/senha-alterar-dialog/senha-alterar-dialog.component';
+import { SenhaAlterarDialogComponent } from 'src/app/pages/dialog/Senha-alterar-dialog/Senha-alterar-dialog.component';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class ListUsuarioComponent implements OnInit {
   user: UsuarioModel = {
     Id: 1,
     Email: 'exemplo@dominio.com',
-    Senha: 'minhasenha',
+    Senha: 'minhaSenha',
     Ativo: 'S',
     Nome: 'Exemplo Nome',
     Permissao: 'A',
