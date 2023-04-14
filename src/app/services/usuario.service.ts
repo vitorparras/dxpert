@@ -5,28 +5,25 @@ import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environments';
 import { IUsuario } from '../interfaces/IUsuario';
-const apiUrlUsuario = environment.apiUrl + "Usuario";
+const apiUrlUsuario = environment.apiUrl + 'Usuario';
 
 @Injectable({
   providedIn: 'root',
 })
-
-
-
 export class UsuarioService {
-
   constructor(private httpClient: HttpClient, private router: Router) {}
-  
+
   logar(usuario: IUsuario): Observable<any> {
-    return this.httpClient.post<any>(apiUrlUsuario + "/Login", usuario).pipe(
+    return this.httpClient.post<any>(apiUrlUsuario + '/Login', usuario).pipe(
       tap((resposta) => {
-        if(!resposta.sucesso) return resposta;
-        localStorage.setItem('token', btoa(JSON.stringify(resposta['token'])));
-        localStorage.setItem('usuario', btoa(JSON.stringify(resposta['usuario'])));
-        this.router.navigate(['']);
-      }));
+        if (resposta.token != null) {
+          localStorage.setItem('token',resposta['token']);
+          this.router.navigate(['']);
+        }
+      })
+    );
   }
- 
+
   deslogar() {
     localStorage.clear();
     this.router.navigate(['login']);
@@ -38,9 +35,11 @@ export class UsuarioService {
   }
 
   get obterIdUsuarioLogado(): string {
-    var user = (JSON.parse(atob(localStorage.getItem('usuario') ?? '')) as IUsuario)?.id;
-      
-    return user ? '': user ?? '';
+    var user = (
+      JSON.parse(atob(localStorage.getItem('usuario') ?? '')) as IUsuario
+    )?.id;
+
+    return user ? '' : user ?? '';
   }
 
   get obterTokenUsuario(): string {
