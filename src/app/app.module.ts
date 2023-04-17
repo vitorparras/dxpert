@@ -26,12 +26,20 @@ import { IndexComponent } from './pages/dashboard/index/index.component';
 import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/list-usuarios.component';
 import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/list-usuario.component';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddUpdateUserComponent } from './pages/dashboard/usuarios/add-update-user/add-update-user.component';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { SenhaAlterarDialogComponent } from './pages/dialog/Senha-alterar-dialog/Senha-alterar-dialog.component';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TokenInterceptor } from './services/interceptors/token.interceptor';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -70,9 +78,14 @@ import { SenhaAlterarDialogComponent } from './pages/dialog/Senha-alterar-dialog
     ChartsModule,
     HttpClientModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatSnackBarModule
   ],
-  providers: [HttpClientModule],
+ 
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

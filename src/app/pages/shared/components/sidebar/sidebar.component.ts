@@ -1,32 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 declare interface RouteInfo {
   path: string;
   title: string;
   icon: string;
   class: string;
+  acao: string;
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/index', title: 'Dashboard', icon: 'fa-solid fa-house', class: '' },
+  { 
+    path: '/index', 
+  title: 'Dashboard', 
+  icon: 'fa-solid fa-house', 
+  class: '',
+  acao: '' },
   {
     path: '/usuario',
     title: 'Meu Perfil',
     icon: 'fa-solid fa-user',
     class: '',
+    acao: ''
   },
   {
     path: '/usuarios',
     title: 'Usuarios',
     icon: 'fa-solid fa-users',
     class: '',
+    acao: ''
   },
   {
     path: '/notifications',
     title: 'Simulações',
     icon: 'fa-solid fa-file-lines',
     class: '',
+    acao: ''
   },
 
   {
@@ -34,18 +44,14 @@ export const ROUTES: RouteInfo[] = [
     title: 'Acompanhamentos',
     icon: 'fa-solid fa-list-check',
     class: '',
+    acao: ''
   },
   {
     path: '/table-list',
     title: 'Configurações',
     icon: 'fa-solid fa-gears',
     class: '',
-  },
-  {
-    path: '/login',
-    title: 'Sair',
-    icon: 'fa-solid fa-arrow-right-from-bracket',
-    class: '',
+    acao: ''
   },
 ];
 
@@ -58,7 +64,7 @@ export class SidebarComponent implements OnInit {
   menuItems: any[] | undefined;
   index = '/index';
 
-  constructor() {}
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
@@ -70,4 +76,9 @@ export class SidebarComponent implements OnInit {
     }
     return true;
   }
+
+  deslogar(){
+    this.usuarioService.deslogar();
+  }
+
 }

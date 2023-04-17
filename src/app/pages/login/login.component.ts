@@ -12,6 +12,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class LoginComponent implements OnInit {
   public hide = true;
   public message = '';
+  public messageBemVindo = '';
   public sucesso = false;
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
@@ -89,6 +90,7 @@ export class LoginComponent implements OnInit {
       this.sucesso = response.sucesso;
       if (response.sucesso) {
         this.message = 'Login realizado com sucesso!';
+        this.messageBemVindo = 'Bem vindo ' + response.nome;
         setTimeout(() => {
           btn?.click();
           setTimeout(() => {
