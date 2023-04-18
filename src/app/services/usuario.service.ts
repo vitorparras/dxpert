@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -29,10 +29,10 @@ export class UsuarioService {
   deslogar() {
     this.httpClient.post<any>(apiUrlUsuario + '/Logout', null).subscribe({
       next: (resposta) => {
-          localStorage.clear();
-          this.router.navigate(['login']);
       }
     });
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 
   get obterTokenUsuario(): string {
@@ -42,4 +42,46 @@ export class UsuarioService {
   get logado(): boolean {
     return localStorage.getItem(localStorageVarNames.Token) ? true : false;
   }
+
+
+
+
+
+
+
+
+
+
+  getUsers(): Observable<any[]> {
+    return this.httpClient.get<any[]>(apiUrlUsuario + '/List');
+  }
+
+  // Função para excluir um usuário pelo ID
+  deleteUser(usuario: number): Observable<any> {
+    return this.httpClient.delete<any>(apiUrlUsuario + '/Delete/'+usuario);
+  }
+
+  // Função para editar um usuário pelo ID
+  editUser(userData: any): Observable<any> {
+    return this.httpClient.put<any>(apiUrlUsuario + '/Edit', userData);
+  }
+
+  // Função para ADD um usuário pelo ID
+  addUser(userData: any): Observable<any> {
+    return this.httpClient.post<any>(apiUrlUsuario + '/Add', userData);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
