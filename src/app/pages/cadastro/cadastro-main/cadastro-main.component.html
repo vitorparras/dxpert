@@ -1,39 +1,21 @@
-<!DOCTYPE HTML>
-<html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DXPERT</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-
-<body>
     <!--******************** INICIO HEADER ********************-->
-    <header id="header-site">
+    <div id="header-site">
         <div class="header-site">
-            <div id="logo">
-                <a href="#">
-                    <img src="src/assets/imgs/cadastro/logo1.png" alt="">
-                </a>
-            </div>
             <div class="opcoes">
-                <a href="#" class="sair">Sair <span>deste
-                        perfil</span></a>
-                <a href="#" class="icone-login" onclick="alert('Não Implementado')"><img src="/assets/imgs/cadastro/icone-login.png" alt=""></a>
                 <div class="btn-voltar">
                     <a href="#" onclick="window.history.back()">Voltar</a>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
     <!--******************** FIM HEADER ********************-->
 
     <!--******************** INICIO DO COMPONENTE *******************-->
 
     <!-- Coloque aqui o componente que será carregado dinamicamente -->
+
+    <router-outlet></router-outlet>
 
     <!--******************** FIM DO COMPONENTE *******************-->
 
@@ -41,7 +23,7 @@
 
     <footer id="footer-site">
         <div class="logo-rodape">
-            <img src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/imgs/logo3.png" alt="">
+            <img src="/assets/imgs/cadastro/logo3.png" alt="">
         </div>
         <div class="msg">
             Nosso propósito é Dxpertar nas pessoas a importância de se preparar financeiramente protegendo quem elas mais
@@ -53,12 +35,3 @@
     </footer>
 
     <!--******************** FIM FOOTER ********************-->
-
-    <script type="text/javascript" src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/js/validate/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/js/jquery.mask.js"></script>
-    <script type="text/javascript" src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/js/jquery.maskMoney.js"></script>
-    <script type="text/javascript" src="<?php echo ($_SESSION['BaseUrl']) ?>Frontend/js/global.js"></script>
-</body>
-
-</html>

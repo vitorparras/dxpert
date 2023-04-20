@@ -9,6 +9,7 @@ import { BaseComponent } from './pages/shared/base/base.component';
 import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autenticado.guard';
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
 import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-main.component';
+import { DadosPessoaisComponent } from './pages/cadastro/dados-pessoais/dados-pessoais.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,13 @@ const routes: Routes = [
       { path: 'index', component: IndexComponent },
       { path: 'usuario', component: ListUsuarioComponent },
       { path: 'usuarios', component: ListUsuariosComponent },
-      { path: 'cadastro', component: CadastroMainComponent },
+      { path: 'cadastro', component: CadastroMainComponent,
+        children: [
+          { path: 'dados-pessoais', component: DadosPessoaisComponent },
+          { path: 'usuarios', component: ListUsuariosComponent },
+
+        ]
+    },
     ],
   },
   {
