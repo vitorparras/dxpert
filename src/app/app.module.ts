@@ -53,6 +53,7 @@ import { FormaPagamentoComponent } from './pages/cadastroCinza/forma-pagamento/f
 import { DeclaracaoPessoalComponent } from './pages/cadastroCinza/declaracao-pessoal/declaracao-pessoal.component';
 import { SaudeAtividadeComponent } from './pages/cadastroCinza/saude-atividade/saude-atividade.component';
 import { CinzaMainComponent } from './pages/relatorioCinza/cinza-main/cinza-main.component';
+import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-main.component';
 
 
 
@@ -88,6 +89,7 @@ import { CinzaMainComponent } from './pages/relatorioCinza/cinza-main/cinza-main
     DeclaracaoPessoalComponent,
     SaudeAtividadeComponent,
     CinzaMainComponent,
+    CadastroMainComponent,
 
     // cadastros
 

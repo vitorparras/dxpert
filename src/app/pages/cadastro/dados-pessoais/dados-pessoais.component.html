@@ -1,1 +1,47 @@
-<p>dados-pessoais works!</p>
+<div id="formulario">
+    <h1 class="titulo-principal">Simulação de seguro</h1>
+    <div class="form">
+      <form id="formSeguro">
+        <ng-container *ngIf="id">
+          <input type="text" name="Id" hidden value="{{id}}">
+        </ng-container>
+  
+        <h2 class="subtitulo">Dados Pessoais</h2>
+        <div>
+          <label>
+            <input type="text" name="nome" placeholder="Nome completo" required>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="date" name="dataNascimento" placeholder="Data de nascimento" required>
+          </label>
+        </div>
+        <div class="selecione">
+          <label class="feminino">
+            <input type="radio" name="rSelecione" value="F">
+          </label>
+          <label class="masculino">
+            <input type="radio" name="rSelecione" value="M">
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="email" name="email" placeholder="Endereço de e-mail" required>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="tel" name="celular" placeholder="Telefone celular" required>
+          </label>
+        </div>
+        <div class="btn">
+          <button type="submit" class="img-button">
+            Prosseguir
+            <img src="/assets/imgs/cadastro/icones/icone-prosseguir.png" alt="">
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

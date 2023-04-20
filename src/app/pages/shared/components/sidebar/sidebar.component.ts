@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
     acao: ''
   },
   {
-    path: '/notifications',
+    path: '/cadastro',
     title: 'Simulações',
     icon: 'fa-solid fa-file-lines',
     class: '',
