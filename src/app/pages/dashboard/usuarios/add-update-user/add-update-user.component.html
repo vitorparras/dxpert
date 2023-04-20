@@ -1,38 +1,100 @@
 <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
-    <div class="form-group">
-      <label for="name">Nome</label>
-      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.nome" required>
+  <input type="hidden" name="id" [(ngModel)]="user.id" />
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nome"
+      name="nome"
+      [(ngModel)]="user.nome"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      [(ngModel)]="this.user.email"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="telefone">Telefone</label>
+    <input
+      type="text"
+      class="form-control"
+      id="telefone"
+      name="telefone"
+      [(ngModel)]="user.telefone"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="senha">Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="senha"
+      name="senha"
+      [(ngModel)]="user.senha"
+      (blur)="validatePassword()"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="senhaConfirm">Repetir senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="senhaConfirm"
+      name="senhaConfirm"
+      [(ngModel)]="user.senhaConfirm"
+      (blur)="validatePassword()"
+      required
+    />
+    <div *ngIf="passwordMismatch" class="text-danger">
+      As senhas não coincidem.
     </div>
-  
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="phone">Telefone</label>
-      <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.telefone" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="password">Senha</label>
-      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.senha" (blur)="validatePassword()" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="passwordConfirm">Repetir senha</label>
-      <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" [(ngModel)]="user.senhaConfirm" (blur)="validatePassword()" required>
-      <div *ngIf="passwordMismatch" class="text-danger">As senhas não coincidem.</div>
-    </div>
-  
-    <div class="form-group">
-      <label for="permission">Permissão</label>
-      <select class="form-control" id="permission" name="permission" [(ngModel)]="user.permissao" required>
-        <option value="1">Admin</option>
-        <option value="0">Padrão</option>
-      </select>
-    </div>
-  
-    <button type="submit" class="btn btn-primary" [disabled]="addUserForm.invalid || passwordMismatch">Adicionar usuário</button>
-  </form>
-  
+  </div>
+
+  <div class="form-group">
+    <label for="permissao">Permissão</label>
+    <select
+      class="form-control"
+      id="permissao"
+      name="permissao"
+      [(ngModel)]="user.permissao"
+      required
+    >
+      <option value="1">Admin</option>
+      <option value="0">Padrão</option>
+    </select>
+  </div>
+
+  <button
+    *ngIf="!isEditMode"
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="addUserForm.invalid || passwordMismatch"
+  >
+    Adicionar usuário
+  </button>
+
+  <button
+    *ngIf="isEditMode"
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="addUserForm.invalid || passwordMismatch"
+  >
+    Salvar Alterações
+  </button>
+</form>

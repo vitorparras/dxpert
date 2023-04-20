@@ -45,12 +45,9 @@ export class UsuarioService {
 
 
 
-
-
-
-
-
-
+  findUser(id:number): Observable<any> {
+    return this.httpClient.get<any>(apiUrlUsuario + '/Find?id='+id);
+  }
 
   getUsers(): Observable<any[]> {
     return this.httpClient.get<any[]>(apiUrlUsuario + '/List');

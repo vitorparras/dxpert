@@ -1,37 +1,18 @@
-<div class="panel-header panel-header-sm">
-</div>
+<div class="panel-header panel-header-sm"></div>
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h2 class="title">Meu Usuario</h2>
+          <h4 class="card-title">Meu Usuario</h4>
         </div>
         <div class="card-body">
-          <form>
-            <div class="row">
-              <div class="col-md-8 pr-1">
-                <div class="form-group">
-                  <label>Nome</label>
-                  <input type="text" class="form-control" placeholder="Username" value="{{user.Nome}}">
-                </div>
-              </div>
-              <div class="col-md-8 pr-1">
-                <div class="form-group">
-                  <label for="Email">Email</label>
-                  <input name="Email" id="Email" type="Email" class="form-control" placeholder="Email" value="{{user.Email}}">
-                </div>
-              </div>
-            </div>
-            <button mat-fab extended color="primary" class="m-2">
-              <mat-icon>done</mat-icon>
-              Salvar
-            </button>
-            <button mat-fab extended color="accent" class="m-2" (click)="openDialog()">
-              <mat-icon>edit</mat-icon>
-              Alterar Senha
-            </button>
-          </form>
+          <app-add-update-user
+            [userId]="selectedUserId"
+            (userEdited)="reloadUser()"
+            (userReloaded)="reloadUser()"
+            [isEditMode]="true"
+          ></app-add-update-user>
         </div>
       </div>
     </div>

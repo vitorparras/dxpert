@@ -36,6 +36,16 @@ import { SenhaAlterarDialogComponent } from './pages/dialog/Senha-alterar-dialog
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
+import { DadosPessoais1Component } from './pages/cadastro/dados-pessoais1/dados-pessoais1.component';
+import { DadosPessoaisComponent } from './pages/cadastro/dados-pessoais/dados-pessoais.component';
+import { DadosFamiliaresComponent } from './pages/cadastro/dados-familiares/dados-familiares.component';
+import { DadosDescendentesComponent } from './pages/cadastro/dados-descendentes/dados-descendentes.component';
+import { DadosProfissionaisComponent } from './pages/cadastro/dados-profissionais/dados-profissionais.component';
+import { DadosFinanceirosComponent } from './pages/cadastro/dados-financeiros/dados-financeiros.component';
+import { DadosSaudeComponent } from './pages/cadastro/dados-saude/dados-saude.component';
+import { GerandoRelatorioComponent } from './pages/relatorio/gerando-relatorio/gerando-relatorio.component';
+import { RelatorioGradoSucessoComponent } from './pages/relatorio/relatorio-grado-sucesso/relatorio-grado-sucesso.component';
+import { RelatorioMainComponent } from './pages/relatorio/relatorio-main/relatorio-main.component';
 
 
 
@@ -54,6 +64,16 @@ import { TokenInterceptor } from './services/interceptors/token.interceptor';
     ListUsuarioComponent,
     AddUpdateUserComponent,
     SenhaAlterarDialogComponent,
+    DadosPessoais1Component,
+    DadosPessoaisComponent,
+    DadosFamiliaresComponent,
+    DadosDescendentesComponent,
+    DadosProfissionaisComponent,
+    DadosFinanceirosComponent,
+    DadosSaudeComponent,
+    GerandoRelatorioComponent,
+    RelatorioGradoSucessoComponent,
+    RelatorioMainComponent,
 
     // cadastros
 
