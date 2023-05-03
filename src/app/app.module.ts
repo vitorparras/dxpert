@@ -55,7 +55,8 @@ import { SaudeAtividadeComponent } from './pages/cadastroCinza/saude-atividade/s
 import { CinzaMainComponent } from './pages/relatorioCinza/cinza-main/cinza-main.component';
 import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-main.component';
 
-
+import { IConfig, NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask, provideNgxMask } from 'ngx-mask';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -116,12 +117,17 @@ import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-m
     MatGridListModule,
     MatCardModule,
     MatSidenavModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxMaskDirective, 
+    NgxMaskPipe,
+    MatProgressSpinnerModule
   ],
- 
+  
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    provideNgxMask(),
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

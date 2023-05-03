@@ -296,7 +296,7 @@
 
 :host #header-site {
   width: 100%;
-  min-height: 410px;
+  min-height: 310px;
   padding: 1.4em 0;
   background: rgb(248, 133, 35);
   background: -moz-radial-gradient(
@@ -1346,4 +1346,10 @@
     border-radius: 30px;
     background-color: #eb6608;
   }
+}
+
+:host .msg-erro-form {
+  display: block;
+  color: red;
+  margin: 3px 0px 5px;
 }
