@@ -8,17 +8,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { BaseComponent } from './pages/shared/base/base.component';
 import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autenticado.guard';
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
-import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-main.component';
-import { DadosPessoaisComponent } from './pages/cadastro/dados-pessoais/dados-pessoais.component';
-import { DadosFamiliaresComponent } from './pages/cadastro/dados-familiares/dados-familiares.component';
-import { DadosDescendentesComponent } from './pages/cadastro/dados-descendentes/dados-descendentes.component';
-import { DadosProfissionaisComponent } from './pages/cadastro/dados-profissionais/dados-profissionais.component';
-import { DadosFinanceirosComponent } from './pages/cadastro/dados-financeiros/dados-financeiros.component';
-import { DadosSaudeComponent } from './pages/cadastro/dados-saude/dados-saude.component';
-import { RelatorioListComponent } from './pages/relatorio/relatorio-list/relatorio-list.component';
-import { GerandoRelatorioComponent } from './pages/relatorio/gerando-relatorio/gerando-relatorio.component';
-import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
-import { RelatorioMainComponent } from './pages/relatorio/relatorio-main/relatorio-main.component';
+import { CadastroMainComponent } from './pages/cadastro/cadastro-inicial/cadastro-main/cadastro-main.component';
+import { DadosDescendentesComponent } from './pages/cadastro/cadastro-inicial/dados-descendentes/dados-descendentes.component';
+import { DadosFinanceirosComponent } from './pages/cadastro/cadastro-inicial/dados-financeiros/dados-financeiros.component';
+import { DadosSaudeComponent } from './pages/cadastro/cadastro-inicial/dados-saude/dados-saude.component';
+import { RelatorioListComponent } from './pages/dashboard/relatorio-list/relatorio-list.component';
+import { GerandoRelatorioComponent } from './pages/relatorio/relatorio-inicial/gerando-relatorio/gerando-relatorio.component';
+import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-inicial/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
+import { RelatorioMainComponent } from './pages/relatorio/relatorio-inicial/relatorio-main/relatorio-main.component';
+import { DadosFamiliaresComponent } from './pages/cadastro/cadastro-inicial/dados-familiares/dados-familiares.component';
+import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-pessoais/dados-pessoais.component';
+import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
 
 const routes: Routes = [
   {

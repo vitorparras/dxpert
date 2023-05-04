@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class DadosFinanceirosComponent {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder,private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.form = this.fb.group({

@@ -23,23 +23,6 @@ import { AddUpdateUserComponent } from './pages/dashboard/usuarios/add-update-us
 
 
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
-import { DadosPessoaisComponent } from './pages/cadastro/dados-pessoais/dados-pessoais.component';
-import { DadosFamiliaresComponent } from './pages/cadastro/dados-familiares/dados-familiares.component';
-import { DadosDescendentesComponent } from './pages/cadastro/dados-descendentes/dados-descendentes.component';
-import { DadosProfissionaisComponent } from './pages/cadastro/dados-profissionais/dados-profissionais.component';
-import { DadosFinanceirosComponent } from './pages/cadastro/dados-financeiros/dados-financeiros.component';
-import { DadosSaudeComponent } from './pages/cadastro/dados-saude/dados-saude.component';
-import { GerandoRelatorioComponent } from './pages/relatorio/gerando-relatorio/gerando-relatorio.component';
-import { RelatorioMainComponent } from './pages/relatorio/relatorio-main/relatorio-main.component';
-import { DocumentacaoComponent } from './pages/cadastroCinza/documentacao/documentacao.component';
-import { DadosFiscaisComponent } from './pages/cadastroCinza/dados-fiscais/dados-fiscais.component';
-import { EnderecoResidencialComponent } from './pages/cadastroCinza/endereco-residencial/endereco-residencial.component';
-import { BeneficiariosComponent } from './pages/cadastroCinza/beneficiarios/beneficiarios.component';
-import { FormaPagamentoComponent } from './pages/cadastroCinza/forma-pagamento/forma-pagamento.component';
-import { DeclaracaoPessoalComponent } from './pages/cadastroCinza/declaracao-pessoal/declaracao-pessoal.component';
-import { SaudeAtividadeComponent } from './pages/cadastroCinza/saude-atividade/saude-atividade.component';
-import { CinzaMainComponent } from './pages/relatorioCinza/cinza-main/cinza-main.component';
-import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-main.component';
 
 import { IConfig, NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -92,8 +75,29 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
-import { RelatorioListComponent } from './pages/relatorio/relatorio-list/relatorio-list.component';
-import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
+import { RelatorioListComponent } from './pages/dashboard/relatorio-list/relatorio-list.component';
+import { ConfiguracoesComponent } from './pages/dashboard/configuracoes/configuracoes.component';
+import { CadastroMainComponent } from './pages/cadastro/cadastro-inicial/cadastro-main/cadastro-main.component';
+import { DadosDescendentesComponent } from './pages/cadastro/cadastro-inicial/dados-descendentes/dados-descendentes.component';
+import { DadosFinanceirosComponent } from './pages/cadastro/cadastro-inicial/dados-financeiros/dados-financeiros.component';
+import { DadosSaudeComponent } from './pages/cadastro/cadastro-inicial/dados-saude/dados-saude.component';
+import { GerandoRelatorioComponent } from './pages/relatorio/relatorio-inicial/gerando-relatorio/gerando-relatorio.component';
+import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-inicial/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
+import { RelatorioMainComponent } from './pages/relatorio/relatorio-inicial/relatorio-main/relatorio-main.component';
+import { RelatorioCompletoComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/relatorio-completo.component';
+import { RelatorioCinzaCompletoComponent } from './pages/relatorio/relatorio-cinza/relatorio-cinza-completo/relatorio-cinza-completo.component';
+import { RelatorioCinzaMainComponent } from './pages/relatorio/relatorio-cinza/relatorio-cinza-main/relatorio-cinza-main.component';
+import { BeneficiariosComponent } from './pages/cadastro/cadastro-cinza/beneficiarios/beneficiarios.component';
+import { CinzaMainComponent } from './pages/cadastro/cadastro-cinza/cinza-main/cinza-main.component';
+import { DadosFiscaisComponent } from './pages/cadastro/cadastro-cinza/dados-fiscais/dados-fiscais.component';
+import { DeclaracaoPessoalComponent } from './pages/cadastro/cadastro-cinza/declaracao-pessoal/declaracao-pessoal.component';
+import { DocumentacaoComponent } from './pages/cadastro/cadastro-cinza/documentacao/documentacao.component';
+import { EnderecoResidencialComponent } from './pages/cadastro/cadastro-cinza/endereco-residencial/endereco-residencial.component';
+import { FormaPagamentoComponent } from './pages/cadastro/cadastro-cinza/forma-pagamento/forma-pagamento.component';
+import { SaudeAtividadeComponent } from './pages/cadastro/cadastro-cinza/saude-atividade/saude-atividade.component';
+import { DadosFamiliaresComponent } from './pages/cadastro/cadastro-inicial/dados-familiares/dados-familiares.component';
+import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-pessoais/dados-pessoais.component';
+import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
 
 
 
@@ -129,7 +133,11 @@ import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-ger
     CinzaMainComponent,
     CadastroMainComponent,
     RelatorioListComponent,
-    RelatorioGeradoSucessoComponent
+    RelatorioGeradoSucessoComponent,
+    ConfiguracoesComponent,
+    RelatorioCompletoComponent,
+    RelatorioCinzaCompletoComponent,
+    RelatorioCinzaMainComponent
 
     // cadastros
 
