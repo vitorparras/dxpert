@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SpinnerService } from 'src/app/services/spinner.service';
 
 @Component({
   selector: 'app-cadastro-main',
@@ -9,10 +8,6 @@ import { SpinnerService } from 'src/app/services/spinner.service';
 })
 export class CadastroMainComponent {
 
-  constructor(public spinnerService: SpinnerService) { }
-
-
-  
 }
 
 

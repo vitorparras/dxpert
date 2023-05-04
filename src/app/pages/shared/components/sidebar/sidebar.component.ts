@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import { UsuarioService } from 'src/app/services/usuario.service';
+
+export class SeuModulo { }
 
 declare interface RouteInfo {
   path: string;

@@ -10,6 +10,15 @@ import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autent
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
 import { CadastroMainComponent } from './pages/cadastro/cadastro-main/cadastro-main.component';
 import { DadosPessoaisComponent } from './pages/cadastro/dados-pessoais/dados-pessoais.component';
+import { DadosFamiliaresComponent } from './pages/cadastro/dados-familiares/dados-familiares.component';
+import { DadosDescendentesComponent } from './pages/cadastro/dados-descendentes/dados-descendentes.component';
+import { DadosProfissionaisComponent } from './pages/cadastro/dados-profissionais/dados-profissionais.component';
+import { DadosFinanceirosComponent } from './pages/cadastro/dados-financeiros/dados-financeiros.component';
+import { DadosSaudeComponent } from './pages/cadastro/dados-saude/dados-saude.component';
+import { RelatorioListComponent } from './pages/relatorio/relatorio-list/relatorio-list.component';
+import { GerandoRelatorioComponent } from './pages/relatorio/gerando-relatorio/gerando-relatorio.component';
+import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
+import { RelatorioMainComponent } from './pages/relatorio/relatorio-main/relatorio-main.component';
 
 const routes: Routes = [
   {
@@ -34,10 +43,21 @@ const routes: Routes = [
       { path: 'cadastro', component: CadastroMainComponent,
         children: [
           { path: 'dados-pessoais', component: DadosPessoaisComponent },
-          { path: 'usuarios', component: ListUsuariosComponent },
-
+          { path: 'dados-familiares', component: DadosFamiliaresComponent },
+          { path: 'dados-descendentes', component: DadosDescendentesComponent },
+          { path: 'dados-profissionais', component: DadosProfissionaisComponent },
+          { path: 'dados-financeiros', component: DadosFinanceirosComponent },
+          { path: 'dados-saude', component: DadosSaudeComponent }
         ]
-    },
+      },
+      { path: 'relatorio', component: RelatorioMainComponent,
+          children: [
+            { path: 'gerando', component: GerandoRelatorioComponent },
+            { path: 'gerado', component: RelatorioGeradoSucessoComponent },
+            { path: 'completo', component: RelatorioMainComponent },
+            { path: 'list', component: RelatorioListComponent }
+          ]
+      },
     ],
   },
   {

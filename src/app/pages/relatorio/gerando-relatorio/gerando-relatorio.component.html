@@ -1,1 +1,27 @@
-<p>gerando-relatorio works!</p>
+<div id="formulario">
+    <h1 class="titulo-principal">Simulação de seguro</h1>
+    <div class="form">
+        <form id="FormAuto" name="Form" method="POST" action="8-gerado-sucesso.php">
+            <input type="text" name="id" hidden [(ngModel)]="id">
+            <input type="text" name="idRelatorio" hidden [(ngModel)]="idRelatorio">
+
+            <h2 class="subtitulo">Gerando relatório</h2>
+            <div class="loading" *ngIf="isLoading">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="msg-info">
+                Os dados estão sendo processados para gerar o relatório e cálculos previdenciários.
+            </div>
+            <div class="btn">
+                <button type="button" class="img-button bg-cinza" (click)="cancelar()">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

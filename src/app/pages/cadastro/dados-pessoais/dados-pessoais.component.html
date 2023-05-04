@@ -5,13 +5,12 @@
       <ng-container *ngIf="id">
         <input type="text" name="Id" hidden value="{{ id }}" />
       </ng-container>
-
+      
       <h2 class="subtitulo">Dados Pessoais</h2>
       <div>
         <label>
           <input
             type="text"
-            name="nome"
             placeholder="Nome completo"
             required
             formControlName="nome"
@@ -22,7 +21,6 @@
         <label>
           <input
             type="date"
-            name="dataNascimento"
             placeholder="Data de nascimento"
             formControlName="dataNascimento"
             required
@@ -34,19 +32,15 @@
         <label class="feminino" [class.selecionado]="selecao === 'F'">
           <input
             type="radio"
-            name="rSelecione"
             value="F"
             formControlName="rSelecione"
-            [(ngModel)]="selecao"
           />
         </label>
         <label class="masculino" [class.selecionado]="selecao === 'M'">
           <input
             type="radio"
-            name="rSelecione"
             formControlName="rSelecione"
             value="M"
-            [(ngModel)]="selecao"
           />
         </label>
       </div>
@@ -55,18 +49,17 @@
         <label>
           <input
             type="email"
-            name="email"
             placeholder="Endereço de e-mail"
             formControlName="email"
             required
           />
+          
         </label>
       </div>
       <div>
         <label>
           <input
             type="text"
-            name="celular"
             placeholder="Telefone celular"
             formControlName="celular"
             required
@@ -88,6 +81,11 @@
       >
       <span
         class="msg-erro-form"
+        *ngIf="form.controls['email'].errors?.['email'] "
+        >Email Invalido</span
+      >
+      <span
+        class="msg-erro-form"
         *ngIf="form.controls['rSelecione'].errors?.['required'] && form.controls['rSelecione'].touched"
         >Sexo obrigatório</span
       >
@@ -100,6 +98,12 @@
         class="msg-erro-form"
         *ngIf="form.controls['nome'].errors?.['required'] && form.controls['nome'].touched"
         >Nome obrigatório</span
+      >
+
+      <span
+        class="msg-erro-form"
+        *ngIf="err !== ''"
+        >{{err}}</span
       >
 
       <div class="btn">

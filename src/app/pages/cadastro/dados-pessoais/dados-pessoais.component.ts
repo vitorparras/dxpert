@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { timeInterval } from 'rxjs/operators';
-import { SpinnerService } from 'src/app/services/spinner.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -9,36 +10,41 @@ import { SpinnerService } from 'src/app/services/spinner.service';
   styleUrls: ['./dados-pessoais.component.css'],
 })
 export class DadosPessoaisComponent {
-  // Em cadastro-main.component.ts
   selecao: 'F' | 'M' | undefined;
+  err: string | undefined;
   form!: FormGroup;
   @Input() id: string | undefined;
 
-  constructor(
-    private fb: FormBuilder,
-    private spinnerService: SpinnerService
-  ) {}
+  constructor(private fb: FormBuilder,
+     public loadingService: LoadingService,
+     private router: Router ) {}
 
   ngOnInit() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      celular: ['', Validators.required, Validators.minLength(11)],
-      nome: ['', Validators.required, Validators.minLength(3)],
-      dataNascimento: ['', Validators.required, Validators.minLength(10)],
+      celular: ['', Validators.required],
+      nome: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
       rSelecione: ['', Validators.required],
+    });
+
+    this.form.get('rSelecione')?.valueChanges.subscribe((val) => {
+      this.selecao = val;
     });
   }
 
   enviar() {
-    this.spinnerService.show();
+    this.loadingService.show();
+    
+
     if (this.form.valid) {
-
-      setTimeout(function() {
-        console.log("2 segundos se passaram!");
-        }, 20000);
-
+     
     }
 
-    this.spinnerService.hide();
+    setTimeout(() => {
+      this.loadingService.hide();
+      this.router.navigate(['/cadastro/dados-familiares']);
+    }, 5000);
   }
 }
+

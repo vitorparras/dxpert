@@ -1,1 +1,40 @@
-<p>dados-descendentes works!</p>
+<div id="formulario">
+    <h1 class="titulo-principal">Simulação de seguro</h1>
+    <div class="form">
+      <form (submit)="enviarFormulario()">
+        <h2 class="subtitulo">Dados familiares</h2>
+        <div>
+          <label>
+            <input type="text" name="quantFilhos" class="digits" id="" placeholder="Quantos filhos?">
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="text" name="filhosMaiores" id="" placeholder="Filhos menores de 21 anos">
+          </label>
+        </div>
+        <div id="bloco-add-filho" *ngFor="let filho of filhos; let i = index">
+          <div class="info-filho">
+            <label>
+              <input type="text" name="nomeFilho{{i}}" [(ngModel)]="filho.nome" id="" placeholder="Nome do filho">
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="text" name="dtNascFilho{{i}}" [(ngModel)]="filho.dtNasc" (focus)="onFocus($event)" id="" placeholder="Data de nascimento">
+            </label>
+          </div>
+        </div>
+        <div class="add-dados-filho" (click)="adicionarFilho()">
+          + Adicionar dados de mais um filho
+        </div>
+        <div class="btn">
+          <button type="submit" class="img-button">
+            Prosseguir
+            <img src="seu-caminho/para/icone-prosseguir.png" alt="">
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

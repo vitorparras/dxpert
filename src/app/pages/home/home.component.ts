@@ -10,6 +10,7 @@ import {
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import PerfectScrollbar from 'perfect-scrollbar';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   private lastPoppedUrl: string | undefined;
   private yScrollStack: number[] = [];
 
-  constructor(public location: Location, private router: Router) {}
+  constructor(public location: Location, private router: Router, public loadingService: LoadingService) {}
 
   ngOnInit() {
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
