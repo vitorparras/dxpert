@@ -29,18 +29,18 @@
       </div>
 
       <div class="selecione">
-        <label class="feminino" [class.selecionado]="selecao === 'F'">
+        <label class="feminino" [class.selecionado]="selecao === 1">
           <input
             type="radio"
-            value="F"
-            formControlName="rSelecione"
+            [value]="1"
+            formControlName="sexo"
           />
         </label>
-        <label class="masculino" [class.selecionado]="selecao === 'M'">
+        <label class="masculino" [class.selecionado]="selecao === 0">
           <input
             type="radio"
-            formControlName="rSelecione"
-            value="M"
+            formControlName="sexo"
+            [value]="0"
           />
         </label>
       </div>
@@ -86,7 +86,7 @@
       >
       <span
         class="msg-erro-form"
-        *ngIf="form.controls['rSelecione'].errors?.['required'] && form.controls['rSelecione'].touched"
+        *ngIf="form.controls['sexo'].errors?.['required'] && form.controls['sexo'].touched"
         >Sexo obrigatório</span
       >
       <span

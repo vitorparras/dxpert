@@ -50,7 +50,7 @@ const routes: Routes = [
           { path: 'dados-saude', component: DadosSaudeComponent }
         ]
       },
-      { path: 'relatorio', component: RelatorioMainComponent,
+      { path: 'relatorio', component: RelatorioListComponent,
           children: [
             { path: 'gerando', component: GerandoRelatorioComponent },
             { path: 'gerado', component: RelatorioGeradoSucessoComponent },

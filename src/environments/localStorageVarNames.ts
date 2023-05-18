@@ -1,6 +1,7 @@
 export const localStorageVarNames = {
     Token: 'Token',
     IdUser: 'IdUser',
-    NomeUsuario: 'NomeUsuario'
+    NomeUsuario: 'NomeUsuario',
+    IdCadastroAtual: 'IdCadastroAtual',
   };
   

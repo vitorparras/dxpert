@@ -386,9 +386,7 @@
   z-index: 10000000;
 }
 
-:host #header-site .btn-voltar a {
-  color: #fff;
-  font-size: 1.1em;
+:host #header-site .btn-voltar button {
   font-weight: 500;
   line-height: 1em;
   display: block;
@@ -397,7 +395,7 @@
   border: solid 2px #fff;
 }
 
-:host #header-site .btn-voltar a:hover {
+:host #header-site .btn-voltar button:hover {
   color: rgb(248, 133, 35);
   background: #fff;
 }
@@ -422,7 +420,7 @@
   :host #header-site .btn-voltar {
     order: -1;
   }
-  :host #header-site .btn-voltar a {
+  :host #header-site .btn-voltar button {
     border: none;
     padding: 0;
   }

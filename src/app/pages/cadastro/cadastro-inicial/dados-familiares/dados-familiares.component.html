@@ -1,4 +1,4 @@
-<div id="formulario" >
+<div id="formulario">
   <h1 class="titulo-principal">Simulação de seguro</h1>
   <div class="form">
     <form (ngSubmit)="onSubmit()" [formGroup]="formularioSeguroForm">
@@ -24,7 +24,7 @@
           <input
             type="text"
             (focus)="onFocus($event)"
-            formControlName="dtCasamento"
+            formControlName="dataCasamento"
             placeholder="Data do casamento"
           />
         </label>
@@ -39,7 +39,7 @@
           <input
             type="text"
             (focus)="onFocus($event)"
-            formControlName="dtNascConjuge"
+            formControlName="dataNascConjuge"
             placeholder="Nascimento do cônjuge"
           />
         </label>
@@ -60,6 +60,9 @@
           </select>
         </label>
       </div>
+
+      <span class="msg-erro-form" *ngIf="err !== ''">{{ err }}</span>
+
       <div class="btn">
         <button type="submit" class="img-button">
           Prosseguir
