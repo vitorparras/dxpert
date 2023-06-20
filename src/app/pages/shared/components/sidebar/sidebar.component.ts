@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
     acao: ''
   },
   {
-    path: '/relatorio/list',
+    path: '/relatorios',
     title: 'Simulações',
     icon: 'fa-solid fa-file-lines',
     class: '',

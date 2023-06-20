@@ -11,7 +11,7 @@ export class RelatorioListComponent {
   cads: any[] = [];
   selectedName: string = '';
 
-  constructor(private cadastroService: CadastroService,    private router: Router) {}
+  constructor(private cadastroService: CadastroService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCads();

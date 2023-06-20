@@ -27,8 +27,8 @@ export class DadosFamiliaresComponent implements OnInit {
     this.formularioSeguroForm = this.fb.group({
       estadoCivil: ['Não Informado', Validators.required],
       dataCasamento: [null],
-      nomeConjuge: [''],
-      dataNascConjuge: [null],
+      ConjugeNome: [''],
+      conjugeDataNasc: [null],
       possuiFilhos: ['Não Informado', Validators.required],
       etapa: 'Dados Familiares',
       id: 0,
@@ -83,10 +83,6 @@ export class DadosFamiliaresComponent implements OnInit {
       this.err = 'Formulario Com campos invalidos';
       this.loadingService.hide();
     }
-  }
-
-  atualizarEstadoCivil(): void {
-    // atualize o estado civil conforme necessário
   }
 
   onFocus(event: any): void {

@@ -21,6 +21,7 @@ import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-
 import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
 import { ConfiguracoesComponent } from './pages/dashboard/configuracoes/configuracoes.component';
 import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acompanhamentos.component';
+import { RelatorioCompletoComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/relatorio-completo.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,8 @@ const routes: Routes = [
       { path: 'usuarios', component: ListUsuariosComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'acompanhamentos', component: AcompanhamentosComponent },
+      { path: 'relatorios', component: RelatorioListComponent },
+      { path: 'relatorioCompleto', component: RelatorioCompletoComponent },
       { path: 'cadastro', component: CadastroMainComponent,
         children: [
           { path: 'dados-pessoais', component: DadosPessoaisComponent },
@@ -54,12 +57,10 @@ const routes: Routes = [
           { path: 'dados-saude', component: DadosSaudeComponent }
         ]
       },
-      { path: 'relatorio', component: RelatorioListComponent,
+      { path: 'relatorio', component: RelatorioMainComponent,
           children: [
             { path: 'gerando', component: GerandoRelatorioComponent },
             { path: 'gerado', component: RelatorioGeradoSucessoComponent },
-            { path: 'completo', component: RelatorioMainComponent },
-            { path: 'list', component: RelatorioListComponent }
           ]
       },
     ],

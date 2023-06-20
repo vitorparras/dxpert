@@ -7,7 +7,6 @@
         <label class="select">
           <select
             formControlName="estadoCivil"
-            (change)="atualizarEstadoCivil()"
             placeholder="Estado civil"
             required
           >
@@ -31,7 +30,7 @@
         <label>
           <input
             type="text"
-            formControlName="nomeConjuge"
+            formControlName="ConjugeNome"
             placeholder="Nome do cônjuge"
           />
         </label>
@@ -39,7 +38,7 @@
           <input
             type="text"
             (focus)="onFocus($event)"
-            formControlName="dataNascConjuge"
+            formControlName="conjugeDataNasc"
             placeholder="Nascimento do cônjuge"
           />
         </label>

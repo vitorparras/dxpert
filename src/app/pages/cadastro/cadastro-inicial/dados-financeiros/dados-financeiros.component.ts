@@ -2,43 +2,102 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Mask } from '../../../../domain/helps/Mask/Mask';
+import { LoadingService } from 'src/app/services/loading.service';
+import { CadastroService } from 'src/app/services/cadastro.service';
+import { localStorageVarNames } from 'src/environments/localStorageVarNames';
 
 @Component({
   selector: 'app-dados-financeiros',
   templateUrl: './dados-financeiros.component.html',
-  styleUrls: ['./dados-financeiros.component.css']
+  styleUrls: ['./dados-financeiros.component.css'],
 })
 export class DadosFinanceirosComponent {
   form!: FormGroup;
-  mask: Mask = new Mask();
-  constructor(private fb: FormBuilder, private router: Router) {}
+  err: string | undefined;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    public loadingService: LoadingService,
+    private _cadastroService: CadastroService
+  ) {}
 
   ngOnInit() {
     this.form = this.fb.group({
-      impostoRenda: [''],
-      rendaBrutaMensal: [''],
+      impostoDeRenda: [''],
+      rendaBruta: [''],
       despesaMensal: [''],
       reservaEmergencia: [''],
       tempoReserva: [''],
       etapa: 'Dados Financeiros',
+      id: 0,
     });
   }
 
-  atualizarEstadoCivil() {
-    const estadoCivilValue = this.form.get('estadoCivil')?.value;
-    if (estadoCivilValue === 'Solteiro') {
-      this.form.get('dtCasamento')?.reset();
-      this.form.get('nomeConjuge')?.reset();
-      this.form.get('dtNascConjuge')?.reset();
+  enviar() {
+    this.loadingService.show();
+    var idCad = localStorage.getItem(localStorageVarNames.IdCadastroAtual);
+    this.form.get('id')?.setValue(idCad);
+
+    if (this.form.valid) {
+      this._cadastroService.edit(this.form.value).subscribe(
+        (res) => {
+          if (res.sucesso) {
+            setTimeout(() => {
+              this.loadingService.hide();
+              this.router.navigate(['/cadastro/dados-saude']);
+            }, 1000);
+          } else {
+            this.err = res.Message;
+            this.loadingService.hide();
+          }
+        },
+        (err) => {
+          this.err = err;
+          this.loadingService.hide();
+        }
+      );
+    } else {
+      this.err = 'Formulario Com campos invalidos';
+      this.loadingService.hide();
     }
   }
 
-  enviar() {
-    if (this.form.valid) {
-      console.log('Formulário válido:', this.form.value);
-      // Aqui você pode adicionar a chamada para a próxima rota
-    }
+  transformAmountRendaBrutaMensal(element: any) {
+    let val = element.target.value;
+    val = this.transformAmount(val);
+    element.target.value = val;
+    this.form.patchValue({ rendaBrutaMensal: val });
+  }
 
-    this.router.navigate(['/cadastro/dados-saude']);
+  transformAmountdespesaMensal(element: any) {
+    let val = element.target.value;
+    val = this.transformAmount(val);
+    element.target.value = val;
+    this.form.patchValue({ despesaMensal: val });
+  }
+
+  transformAmount(value: any) {
+    let val = value;
+    val = val.replace(/\D/g, ''); // substitui qualquer caracter que não seja número por nada
+    val = val.replace(/(\d)(\d{2})$/, '$1,$2'); // coloca virgula antes dos 2 últimos dígitos
+    val = val.replace(/(?=(\d{3})+(\D))\B/g, '.'); // coloca ponto a cada 3 dígitos
+    if (val.length > 0) {
+      val = `R$ ${val}`; // adiciona o prefixo
+    }
+    return val;
+  }
+
+  transformPercent() {
+    let elem = this.form.value.reservaEmergencia;
+    let val = elem;
+    val = val.replace(/\D/g, ''); // substitui qualquer caracter que não seja número por nada
+    val = val.replace(/(\d)(\d{2})$/, '$1,$2'); // coloca virgula antes dos 2 últimos dígitos
+    val = val.replace(/(?=(\d{3})+(\D))\B/g, ''); // remove ponto a cada 3 dígitos
+    if (val.length > 0 && /\d$/.test(val)) {
+      // verifica se o último caractere é um dígito
+      val = `${val} %`; // adiciona o prefixo
+    }
+    this.form.patchValue({ reservaEmergencia: val });
   }
 }

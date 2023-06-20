@@ -5,7 +5,7 @@
         <h2 class="subtitulo">Dados financeiros</h2>
         <div>
           <label class="select">
-            <select formControlName="impostoRenda">
+            <select formControlName="impostoDeRenda">
               <option value="" selected disabled>Imposto de renda</option>
               <option value="Fica devendo">Fica devendo</option>
               <option value="Tem restituição">Tem restituição</option>
@@ -14,25 +14,21 @@
         </div>
         <div>
           <label>
-            <input type="text" (keyup)="mask.transformAmount($event)" formControlName="rendaBrutaMensal" placeholder="Renda bruta mensal">
+            <input type="text" (keyup)="this.transformAmountRendaBrutaMensal($event)" formControlName="rendaBruta" placeholder="Renda bruta mensal">
           </label>
         </div>
         <div>
           <label>
-            <input type="text" (keyup)="mask.transformAmount($event)"  formControlName="despesaMensal" placeholder="Despesa mensal">
+            <input type="text" (keyup)="this.transformAmountdespesaMensal($event)"  formControlName="despesaMensal" placeholder="Despesa mensal">
           </label>
         </div>
         <div>
           <label class="bg-porcentagem">
-            <input type="text" class="percent" formControlName="reservaEmergencia" placeholder="Reserva de emergência" (keyup)="mask.transformPercent($event)" >
+            <input type="text" formControlName="reservaEmergencia"  placeholder="Reserva de emergência"
+             (keyup)="this.transformPercent()"
+             >
           </label>
         </div>
-
-
-
-
-
-        
         <div>
           <label class="select">
             <select formControlName="tempoReserva">
@@ -44,6 +40,10 @@
             </select>
           </label>
         </div>
+
+        <span class="msg-erro-form" *ngIf="err !== ''">{{ err }}</span>
+
+
         <div class="btn">
           <button type="submit" class="img-button">Prosseguir
             <img src="/assets/imgs/cadastro/icones/icone-prosseguir.png"/>

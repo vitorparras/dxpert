@@ -44,6 +44,10 @@
             </select>
           </label>
         </div>
+
+        <span class="msg-erro-form" *ngIf="err !== ''">{{ err }}</span>
+
+
         <div class="btn">
           <button type="submit" class="img-button">
             Finalizar

@@ -98,6 +98,18 @@ import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/d
 import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acompanhamentos.component';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { RelatorioDadosPessoaisComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-dados-pessoais/relatorio-dados-pessoais.component';
+import { RelatorioCalculoPrevidenciarioComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-calculo-previdenciario/relatorio-calculo-previdenciario.component';
+import { RelatorioPercasComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-percas/relatorio-percas.component';
+import { RelatorioSugestaoParaRecuperarComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-sugestao-para-recuperar/relatorio-sugestao-para-recuperar.component';
+import { CurrencyPipe } from '@angular/common';
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
+
+import { NgChartsModule  } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -134,7 +146,11 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     RelatorioCompletoComponent,
     RelatorioCinzaCompletoComponent,
     RelatorioCinzaMainComponent,
-    AcompanhamentosComponent
+    AcompanhamentosComponent,
+    RelatorioDadosPessoaisComponent,
+    RelatorioCalculoPrevidenciarioComponent,
+    RelatorioPercasComponent,
+    RelatorioSugestaoParaRecuperarComponent
 
     // cadastros
 
@@ -211,6 +227,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     ScrollingModule,
     DialogModule,
     CurrencyMaskModule,
+    NgChartsModule,
   ],
   exports: [
     A11yModule,
@@ -264,7 +281,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
-    provideNgxMask()
+    provideNgxMask(),
+    CurrencyPipe,
   ],
   bootstrap: [AppComponent]
 })
