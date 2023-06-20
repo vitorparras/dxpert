@@ -5,6 +5,7 @@ import { Sexo } from 'src/app/domain/enums/sexo';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { localStorageVarNames } from 'src/environments/localStorageVarNames';
+
 @Component({
   selector: 'app-dados-pessoais',
   templateUrl: './dados-pessoais.component.html',

@@ -21,6 +21,7 @@ export class DadosProfissionaisComponent {
       anosContribuicao: ['', Validators.required],
       dataPosse: ['', Validators.required],
       regimeContratacao: ['', Validators.required],
+      etapa: 'Dados Profissionais',
     });
   }
 

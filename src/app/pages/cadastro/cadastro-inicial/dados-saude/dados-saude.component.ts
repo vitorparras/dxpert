@@ -18,7 +18,8 @@ export class DadosSaudeComponent {
       problemaSaude: ['', Validators.required],
       tomaRemedio: ['', Validators.required],
       fuma: ['', Validators.required],
-      maiorPrioridade: ['', Validators.required]
+      maiorPrioridade: ['', Validators.required],
+      etapa: 'Dados Saude',
     });
     this.baseUrl = window.location.origin;
   }

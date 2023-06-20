@@ -26,9 +26,9 @@
             <input type="text" formControlName="anosContribuicao" id="" placeholder="Anos de contribuição">
           </label>
         </div>
-        <div>
+        <div *ngIf="form.controls['ocupacao'].value === 'Servidor público'">
           <label>
-            <input type="text" onfocus="(this.type='date')" formControlName="dataPosse" id="" placeholder="Data da posse">
+            <input type="text" onfocus="(this.type='date')" formControlName="dataPosse" id="" placeholder="Data da posse" >
           </label>
         </div>
         <div>

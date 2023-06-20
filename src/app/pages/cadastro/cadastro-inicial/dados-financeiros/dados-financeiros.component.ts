@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Mask } from '../../../../domain/helps/Mask/Mask';
 
 @Component({
   selector: 'app-dados-financeiros',
@@ -9,18 +10,17 @@ import { Router } from '@angular/router';
 })
 export class DadosFinanceirosComponent {
   form!: FormGroup;
-
+  mask: Mask = new Mask();
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.form = this.fb.group({
-      estadoCivil: ['', Validators.required],
-      dtCasamento: [''],
-      nomeConjuge: [''],
-      dtNascConjuge: [''],
-      possuiFilhos: ['', Validators.required],
-      quantFilhos: [''],
-      filhosMaiores: ['']
+      impostoRenda: [''],
+      rendaBrutaMensal: [''],
+      despesaMensal: [''],
+      reservaEmergencia: [''],
+      tempoReserva: [''],
+      etapa: 'Dados Financeiros',
     });
   }
 

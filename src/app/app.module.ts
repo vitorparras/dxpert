@@ -10,9 +10,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { BaseComponent } from './pages/shared/base/base.component';
 import { ComponentsModule } from './pages/shared/components/components.module';
 
-
-
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IndexComponent } from './pages/dashboard/index/index.component';
 import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/list-usuarios.component';
@@ -100,9 +97,7 @@ import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-
 import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
 import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acompanhamentos.component';
 
-
-
-
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 @NgModule({
   declarations: [
@@ -214,9 +209,8 @@ import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acom
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    DialogModule
-
-
+    DialogModule,
+    CurrencyMaskModule,
   ],
   exports: [
     A11yModule,
@@ -270,7 +264,7 @@ import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acom
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
-    provideNgxMask(),
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })

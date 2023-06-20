@@ -2,12 +2,11 @@
     <h1 class="titulo-principal">Simulação de seguro</h1>
     <div class="form">
       <form [formGroup]="form" (ngSubmit)="enviar()">
-        
         <h2 class="subtitulo">Dados financeiros</h2>
         <div>
           <label class="select">
             <select formControlName="impostoRenda">
-              <option value="" disabled selected>Imposto de renda</option>
+              <option value="" selected disabled>Imposto de renda</option>
               <option value="Fica devendo">Fica devendo</option>
               <option value="Tem restituição">Tem restituição</option>
             </select>
@@ -15,19 +14,25 @@
         </div>
         <div>
           <label>
-            <input type="text" class="money3" formControlName="rendaBrutaMensal" placeholder="Renda bruta mensal">
+            <input type="text" (keyup)="mask.transformAmount($event)" formControlName="rendaBrutaMensal" placeholder="Renda bruta mensal">
           </label>
         </div>
         <div>
           <label>
-            <input type="text" class="money3" formControlName="despesaMensal" placeholder="Despesa mensal">
+            <input type="text" (keyup)="mask.transformAmount($event)"  formControlName="despesaMensal" placeholder="Despesa mensal">
           </label>
         </div>
         <div>
           <label class="bg-porcentagem">
-            <input type="text" class="percent" formControlName="reservaEmergencia" placeholder="Reserva de emergência">
+            <input type="text" class="percent" formControlName="reservaEmergencia" placeholder="Reserva de emergência" (keyup)="mask.transformPercent($event)" >
           </label>
         </div>
+
+
+
+
+
+        
         <div>
           <label class="select">
             <select formControlName="tempoReserva">
@@ -45,4 +50,3 @@
       </form>
     </div>
   </div>
-  
