@@ -19,6 +19,8 @@ import { RelatorioMainComponent } from './pages/relatorio/relatorio-inicial/rela
 import { DadosFamiliaresComponent } from './pages/cadastro/cadastro-inicial/dados-familiares/dados-familiares.component';
 import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-pessoais/dados-pessoais.component';
 import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
+import { ConfiguracoesComponent } from './pages/dashboard/configuracoes/configuracoes.component';
+import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acompanhamentos.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,8 @@ const routes: Routes = [
       { path: 'index', component: IndexComponent },
       { path: 'usuario', component: ListUsuarioComponent },
       { path: 'usuarios', component: ListUsuariosComponent },
+      { path: 'configuracoes', component: ConfiguracoesComponent },
+      { path: 'acompanhamentos', component: AcompanhamentosComponent },
       { path: 'cadastro', component: CadastroMainComponent,
         children: [
           { path: 'dados-pessoais', component: DadosPessoaisComponent },

@@ -24,6 +24,9 @@ export class DadosPessoaisComponent {
   ) {}
 
   ngOnInit() {
+
+    var id = localStorage.getItem(localStorageVarNames.IdUser);
+
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       celular: ['', Validators.required],
@@ -31,6 +34,7 @@ export class DadosPessoaisComponent {
       dataNascimento: ['', Validators.required],
       sexo: ['', Validators.required],
       etapa: 'Dados Pessoais',
+      IdUsuarioResponsavel: id,
     });
 
     this.form.get('sexo')?.valueChanges.subscribe((val) => {

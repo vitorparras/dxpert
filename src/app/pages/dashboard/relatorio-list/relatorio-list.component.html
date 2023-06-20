@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Relatorios </h4>
+          <h4 class="card-title"> Simulações </h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -33,6 +33,21 @@
                   <td>{{cad.nome}}</td>
                   <td>{{cad.email}}</td>
                   <td>{{cad.celular}}</td>
+                  <td class="text-right d-flex justify-content-end">
+                  
+                    <button mat-fab extended color="primary" class="m-2" >
+                      <mat-icon>list</mat-icon>
+                      Detalhes
+                    </button>
+                    <button mat-fab extended color="primary" class="m-2" >
+                      <mat-icon>cached</mat-icon>
+                      Recomeçar
+                    </button>
+                    <button mat-fab extended color="primary" class="m-2" >
+                      <mat-icon>launch</mat-icon>
+                      Continuar
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>

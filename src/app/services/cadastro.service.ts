@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { data } from 'jquery';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
 
@@ -19,6 +20,18 @@ export class CadastroService {
 
   list(): Observable<any> {
     return this.httpClient.get<any>(apiUrlUsuario + '/List');
+  }
+
+  addDescendentes(data: any): Observable<any> {
+    return this.httpClient.post<any>(apiUrlUsuario + '/AddDescendentes', data);
+  }
+
+  getAcompanhamentosByUser(data: any): Observable<any> {
+    return this.httpClient.get<any>(apiUrlUsuario + '/Acompanhamentos/' + data);
+  }
+
+  getAcompanhamentos(): Observable<any> {
+    return this.httpClient.get<any>(apiUrlUsuario + '/Acompanhamentos');
   }
 
 

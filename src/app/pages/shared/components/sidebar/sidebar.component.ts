@@ -41,14 +41,14 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
-    path: '/user-profile',
+    path: '/acompanhamentos',
     title: 'Acompanhamentos',
     icon: 'fa-solid fa-list-check',
     class: '',
     acao: ''
   },
   {
-    path: '/table-list',
+    path: '/configuracoes',
     title: 'Configurações',
     icon: 'fa-solid fa-gears',
     class: '',

@@ -98,6 +98,7 @@ import { SaudeAtividadeComponent } from './pages/cadastro/cadastro-cinza/saude-a
 import { DadosFamiliaresComponent } from './pages/cadastro/cadastro-inicial/dados-familiares/dados-familiares.component';
 import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-pessoais/dados-pessoais.component';
 import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
+import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acompanhamentos.component';
 
 
 
@@ -137,7 +138,8 @@ import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/d
     ConfiguracoesComponent,
     RelatorioCompletoComponent,
     RelatorioCinzaCompletoComponent,
-    RelatorioCinzaMainComponent
+    RelatorioCinzaMainComponent,
+    AcompanhamentosComponent
 
     // cadastros
 
