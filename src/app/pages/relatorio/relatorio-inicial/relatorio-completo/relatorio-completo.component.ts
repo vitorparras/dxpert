@@ -20,7 +20,7 @@ export class RelatorioCompletoComponent {
   relatorio: any
 
   ngOnInit() {
-    var idCad = localStorage.getItem(localStorageVarNames.IdCadastroAtual) ?? 130;
+    var idCad = localStorage.getItem(localStorageVarNames.IdCadastroAtual) ?? 1;
 
     this._relatorioService.getRelatorio(idCad).subscribe((res) => {
       console.log(res);

@@ -110,6 +110,10 @@ import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
 import { NgChartsModule  } from 'ng2-charts';
+import { RelatorioTermLifeComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-term-life/relatorio-term-life.component';
+import { RelatorioProdutosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-produtos/relatorio-produtos.component';
+import { RelatorioDidComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-did/relatorio-did.component';
+import { ProtecaoCustosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/protecao-custos/protecao-custos.component';
 
 @NgModule({
   declarations: [
@@ -150,7 +154,11 @@ import { NgChartsModule  } from 'ng2-charts';
     RelatorioDadosPessoaisComponent,
     RelatorioCalculoPrevidenciarioComponent,
     RelatorioPercasComponent,
-    RelatorioSugestaoParaRecuperarComponent
+    RelatorioSugestaoParaRecuperarComponent,
+    RelatorioTermLifeComponent,
+    RelatorioProdutosComponent,
+    RelatorioDidComponent,
+    ProtecaoCustosComponent
 
     // cadastros
 

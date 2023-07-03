@@ -1,0 +1,89 @@
+<h2 class="titulo">Evolução de custos dos venefícios de riscos Prevcom</h2>
+<div class="evolucao-custos">
+  <div class="info">
+    <div class="txt">Contribuição para a previdencia social</div>
+    <div class="txt2">{{ relatorio.anosContribuicao ?? " --- " }} Anos</div>
+  </div>
+  <div class="info">
+    <div class="txt">Idade mínima para me aposentar</div>
+    <div class="txt2">{{ relatorio.meAposentoAos }} Anos</div>
+  </div>
+  <div class="info">
+    <div class="txt">Devo contribuir pelo menos mais</div>
+    <div class="txt2">{{ relatorio.devoContribuirPeloMenosMais }} Anos</div>
+  </div>
+</div>
+
+<div class="evolucao-custos2">
+  <div class="div-a">
+    <div class="info-box">
+      <span class="text-white"
+        >Benefício por invalidez:
+        <input
+          type="text"
+          id="BeneficioPorInvalidez"
+          class="money3 beneficios text-white"
+          [value]="'R$ 0,00'"
+          name="BeneficioPorInvalidez"
+          required
+          (change)="salvarBeneficio('BeneficioPorInvalidez')"
+          (keyup)="this.transformAmount($event)"
+        />
+      </span>
+      <img src="assets/imgs/cadastro/icone-seta1.jpg" alt="" />
+      <span id="ValorCalculadoBeneficioInvalidez"
+        >R$
+        {{ dadosBeneficiosInvalides.ValorCalculado | number : "1.2-2" }}</span
+      >
+    </div>
+
+    <div class="info-box">
+      <span
+        >Benefício por morte:
+        <input
+          type="text"
+          id="BeneficioPorMorte"
+          class="money3 beneficios text-white"
+          [value]="'R$ ' + dadosBeneficiosMorte.Valor | number : '1.2-2'"
+          name="BeneficioPorMorte"
+          required
+          (change)="salvarBeneficio('BeneficioPorMorte')"
+        />
+      </span>
+      <img src="assets/imgs/cadastro/icone-seta1.jpg" alt="" />
+      <span id="ValorCalculadoBeneficioMorte"
+        >R$ {{ dadosBeneficiosMorte.ValorCalculado | number : "1.2-2" }}</span
+      >
+    </div>
+  </div>
+  <div class="div-b">
+    <div class="icone">
+      <img src="assets/imgs/cadastro/icone-money.jpg" alt="" />
+    </div>
+    <div class="info">
+      <p>Total de custo hoje</p>
+      <p id="TotalDeCustoBeneficios" class="valor">
+        R$
+        {{
+          dadosBeneficiosMorte.ValorCalculado +
+            dadosBeneficiosInvalides.ValorCalculado | number : "1.2-2"
+        }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<h2 class="titulo">Quanto pagará por esta proteção ao longo do tempo?</h2>
+<div id="ProtecaoPeriodo" class="protecao-periodo">
+  <div *ngFor="let protecao of protecoes" class="info-box">
+    <span>Aos {{ protecao.Aos }} anos</span>
+    <img src="assets/imgs/cadastro/icone-seta1.jpg" alt="" />
+    <span>R$ {{ protecao.Valor | number : "1.2-2" }}</span>
+  </div>
+
+  <div class="total-investido-seguros">
+    <div class="txt">Total investido em seguros durante esse período</div>
+    <img src="assets/imgs/cadastro/icone-seta2.jpg" alt="" />
+    <div class="valor">R$ {{ somaprot | number : "1.2-2" }}</div>
+  </div>
+</div>

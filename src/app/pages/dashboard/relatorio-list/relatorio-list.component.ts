@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CadastroService } from 'src/app/services/cadastro.service';
-
+import { localStorageVarNames } from 'src/environments/localStorageVarNames';
 @Component({
   selector: 'app-relatorio-list',
   templateUrl: './relatorio-list.component.html',
@@ -36,5 +36,10 @@ export class RelatorioListComponent {
 
   add(): void {
     this.router.navigate(['/cadastro/dados-pessoais']);
+  }
+
+  continuarCadastro(cadId:any): void {
+    localStorage.setItem(localStorageVarNames.IdCadastroAtual , cadId.toString());
+    this.router.navigate(['/relatorioCompleto']);
   }
 }
