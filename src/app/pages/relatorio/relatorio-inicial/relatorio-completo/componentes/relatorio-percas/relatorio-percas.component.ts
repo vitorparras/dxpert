@@ -4,6 +4,7 @@ import { ChartDataset } from 'chart.js';
 import { Chart, ChartOptions, ChartType, registerables } from 'chart.js';
 import { Label } from 'chartist';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { SharedService } from 'src/app/services/shared.service';
 
 Chart.register(...registerables, ChartDataLabels);
 
@@ -15,16 +16,10 @@ Chart.register(...registerables, ChartDataLabels);
 export class RelatorioPercasComponent {
   @Input() relatorio: any;
 
-  constructor(private currencyPipe: CurrencyPipe) {}
+  constructor(private sharedService: SharedService) {}
 
   formatarParaReal(valor: number): string | null {
-    return this.currencyPipe.transform(
-      valor,
-      'BRL',
-      'symbol',
-      '1.2-2',
-      'pt-BR'
-    );
+    return this.sharedService.formatarParaReal(valor);
   }
 
   limpaValor(valor: any): number {
@@ -81,9 +76,9 @@ export class RelatorioPercasComponent {
           data: [
             rendalimpa,
             despesalimpa,
-            this.limpaValor(this.relatorio.naAposentadoria),
-            this.limpaValor(this.relatorio.naInvalidez),
-            this.limpaValor(this.relatorio.naPensaoPorMorte),
+            this.limpaValor(this.relatorio.aposentadoria),
+            this.limpaValor(this.relatorio.beneficioInvalidez),
+            this.limpaValor(this.relatorio.pensaoPorMorte),
           ],
           label: 'Valores',
           backgroundColor: 'rgba(235, 102, 8, 0.8)'

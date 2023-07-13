@@ -114,6 +114,7 @@ import { RelatorioTermLifeComponent } from './pages/relatorio/relatorio-inicial/
 import { RelatorioProdutosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-produtos/relatorio-produtos.component';
 import { RelatorioDidComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-did/relatorio-did.component';
 import { ProtecaoCustosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/protecao-custos/protecao-custos.component';
+import { DecimalPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -291,6 +292,7 @@ import { ProtecaoCustosComponent } from './pages/relatorio/relatorio-inicial/rel
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
     provideNgxMask(),
     CurrencyPipe,
+    DecimalPipe,
   ],
   bootstrap: [AppComponent]
 })

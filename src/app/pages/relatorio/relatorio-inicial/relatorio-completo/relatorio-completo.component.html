@@ -24,34 +24,12 @@
     <app-relatorio-produtos  [relatorio]="relatorio"  ></app-relatorio-produtos>
     <app-relatorio-did  [relatorio]="relatorio"  ></app-relatorio-did>
 
-    Evolução de custos dos venefícios de riscos Prevcom
-    Quanto pagará por esta proteção ao longo do tempo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <input
       type="button"
       id="btnImprimir"
       class="btn btn-secondary"
       value="Imprimir"
-      onClick="window.print()"
+      (click)="printPage()"
     />
 
     <form method="POST" action="../cinza/1-cinza-dados-pessoais.php">

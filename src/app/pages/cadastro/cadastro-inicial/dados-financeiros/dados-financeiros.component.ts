@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Mask } from '../../../../domain/helps/Mask/Mask';
 import { LoadingService } from 'src/app/services/loading.service';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { localStorageVarNames } from 'src/environments/localStorageVarNames';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-dados-financeiros',
@@ -19,7 +19,8 @@ export class DadosFinanceirosComponent {
     private fb: FormBuilder,
     private router: Router,
     public loadingService: LoadingService,
-    private _cadastroService: CadastroService
+    private _cadastroService: CadastroService,
+    private _sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -65,27 +66,16 @@ export class DadosFinanceirosComponent {
 
   transformAmountRendaBrutaMensal(element: any) {
     let val = element.target.value;
-    val = this.transformAmount(val);
+    val = this._sharedService.transformAmount(val);
     element.target.value = val;
     this.form.patchValue({ rendaBrutaMensal: val });
   }
-
+  
   transformAmountdespesaMensal(element: any) {
     let val = element.target.value;
-    val = this.transformAmount(val);
+    val = this._sharedService.transformAmount(val);
     element.target.value = val;
     this.form.patchValue({ despesaMensal: val });
-  }
-
-  transformAmount(value: any) {
-    let val = value;
-    val = val.replace(/\D/g, ''); // substitui qualquer caracter que não seja número por nada
-    val = val.replace(/(\d)(\d{2})$/, '$1,$2'); // coloca virgula antes dos 2 últimos dígitos
-    val = val.replace(/(?=(\d{3})+(\D))\B/g, '.'); // coloca ponto a cada 3 dígitos
-    if (val.length > 0) {
-      val = `R$ ${val}`; // adiciona o prefixo
-    }
-    return val;
   }
 
   transformPercent() {

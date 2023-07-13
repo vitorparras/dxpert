@@ -87,17 +87,21 @@
             }
 
             > a{
-                margin: 10px 15px 0;
-                border-radius: $btn-round-radius;
-                color: $white-color;
-                display: block;
-                text-decoration: none;
-                position: relative;
-                text-transform: uppercase;
-                cursor: pointer;
-                font-size: $font-size-mini;
-                padding: 10px 8px;
-                line-height: $line-height-nav-link;
+              margin: 10px 15px 0;
+              border-radius: 30px;
+              color: #FFFFFF;
+              display: flex;
+              text-decoration: none;
+              position: relative;
+              text-transform: uppercase;
+              cursor: pointer;
+              font-size: 0.8em;
+              padding: 10px 8px;
+              line-height: 2rem;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              align-items: center;
+              justify-content: flex-start;
             }
 
             &:first-child > a{
@@ -139,6 +143,7 @@
             display: block;
             height: auto;
             white-space: nowrap;
+            margin: 0px 15px;
         }
 
         i{

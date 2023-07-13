@@ -1,18 +1,18 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-relatorio-calculo-previdenciario',
   templateUrl: './relatorio-calculo-previdenciario.component.html',
-  styleUrls: ['./relatorio-calculo-previdenciario.component.css']
+  styleUrls: ['./relatorio-calculo-previdenciario.component.css'],
 })
 export class RelatorioCalculoPrevidenciarioComponent {
   @Input() relatorio: any;
 
-  constructor(private currencyPipe: CurrencyPipe) { }
+  constructor(private sharedService: SharedService) {}
 
-  formatarParaReal(valor: number): string | null {
-    return this.currencyPipe.transform(valor, 'BRL', 'symbol', '1.2-2', 'pt-BR');
+  formatarParaReal(valor: any): string | null {
+    return this.sharedService.formatarParaReal(valor);
   }
-
 }

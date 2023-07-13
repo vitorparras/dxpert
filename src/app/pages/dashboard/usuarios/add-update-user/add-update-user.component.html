@@ -81,20 +81,30 @@
   </div>
 
   <button
+    mat-fab
+    extended
+    color="accent"
+    class="m-2"
     *ngIf="!isEditMode"
     type="submit"
     class="btn btn-primary"
     [disabled]="addUserForm.invalid || passwordMismatch"
   >
+    <mat-icon>add</mat-icon>
     Adicionar usuário
   </button>
 
   <button
+    mat-fab
+    extended
+    color="accent"
+    class="m-2"
     *ngIf="isEditMode"
     type="submit"
     class="btn btn-primary"
     [disabled]="addUserForm.invalid || passwordMismatch"
   >
+    <mat-icon>save</mat-icon>
     Salvar Alterações
   </button>
 </form>
