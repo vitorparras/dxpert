@@ -1,8 +1,8 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { IUsuario } from 'src/app/interfaces/IUsuario';
-import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   public messageBemVindo = '';
   public sucesso = false;
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     $(document).ready(function () {
@@ -85,10 +85,10 @@ export class LoginComponent implements OnInit {
       Email: $('#Email').val()?.toString(),
       Senha: $('#Senha').val()?.toString(),
     };
-    this.usuarioService.logar(usuario).subscribe((response) => {
+    this.authService.logar(usuario).subscribe((response: any) => {
       var btn = document.getElementById('btncancel');
-      this.sucesso = response.sucesso;
-      if (response.sucesso) {
+      this.sucesso = response.success;
+      if (response.success) {
         this.message = 'Login realizado com sucesso!';
         this.messageBemVindo = 'Bem vindo ' + response.nome;
         setTimeout(() => {
