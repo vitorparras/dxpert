@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  selector: 'app-estatisticas',
+  templateUrl: './estatisticas.component.html',
+  styleUrls: ['./estatisticas.component.css']
 })
 
-export class IndexComponent implements OnInit {
+export class EstatisticasComponent implements OnInit {
   public lineBigDashboardChartType : any | undefined;
   public gradientStroke: any | undefined;
   public chartColor: any | undefined;

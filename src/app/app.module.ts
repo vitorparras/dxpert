@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 
-import { HomeComponent } from './components/home/home.component';
-import { BaseComponent } from './components/shared/base/base.component';
+import { IndexbaseComponent } from './components/dashboard/indexbase/indexbase.component';
+import { IndexbaseComponent } from './components/shared/base/base.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IndexComponent } from './components/dashboard/index/index.component';
+import { EstatisticasComponent } from './components/dashboard/estatisticas/estatisticas.component';
 import { ListUsuariosComponent } from './components/dashboard/usuarios/list-usuarios/list-usuarios.component';
 import { ListUsuarioComponent } from './components/dashboard/usuarios/list-usuario/list-usuario.component';
 
@@ -120,9 +120,9 @@ import { GerandoRelatorioComponent } from './components/dxpert/relatorio/inicial
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    BaseComponent,
-    IndexComponent,
+    IndexbaseComponent,
+    IndexbaseComponent,
+    EstatisticasComponent,
 
     //usuarios
     ListUsuariosComponent,

@@ -13,11 +13,11 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-indexbase',
+  templateUrl: './indexbase.component.html',
+  styleUrls: ['./indexbase.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class IndexbaseComponent implements OnInit {
   private _router: Subscription | undefined;
   private lastPoppedUrl: string | undefined;
   private yScrollStack: number[] = [];

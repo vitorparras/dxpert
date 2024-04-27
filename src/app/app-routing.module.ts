@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from './components/dashboard/index/index.component';
+import { EstatisticasComponent } from './components/dashboard/estatisticas/estatisticas.component';
 import { ListUsuarioComponent } from './components/dashboard/usuarios/list-usuario/list-usuario.component';
 import { ListUsuariosComponent } from './components/dashboard/usuarios/list-usuarios/list-usuarios.component';
-import { HomeComponent } from './components/home/home.component';
+import { IndexbaseComponent } from './components/dashboard/indexbase/indexbase.component';
 import { LoginComponent } from './components/login/login.component';
 import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autenticado.guard';
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
@@ -30,16 +30,16 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
+    component: IndexbaseComponent,
     canActivate: [UsuarioAutenticadoGuard],
   },
   {
     path: '',
-    component: HomeComponent,
+    component: IndexbaseComponent,
     canActivate: [UsuarioAutenticadoGuard],
     children: [
-      { path: '', component: IndexComponent },
-      { path: 'index', component: IndexComponent },
+      { path: '', component: EstatisticasComponent },
+      { path: 'index', component: EstatisticasComponent },
       { path: 'usuario', component: ListUsuarioComponent },
       { path: 'usuarios', component: ListUsuariosComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
