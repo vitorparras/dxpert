@@ -63,7 +63,7 @@ export class NavbarComponent implements OnInit {
 
         this.sidebarVisible = true;
     };
-    
+
     sidebarClose() {
         const html = document.getElementsByTagName('html')[0];
         this.toggleButton.classList.remove('toggled');

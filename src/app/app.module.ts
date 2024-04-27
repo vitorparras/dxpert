@@ -4,11 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 
-import { HomeComponent } from './pages/home/home.component';
-import { BaseComponent } from './pages/shared/base/base.component';
-import { ComponentsModule } from './pages/shared/components/components.module';
+import { HomeComponent } from './components/home/home.component';
+import { BaseComponent } from './components/shared/base/base.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IndexComponent } from './pages/dashboard/index/index.component';
@@ -115,6 +114,7 @@ import { RelatorioProdutosComponent } from './pages/relatorio/relatorio-inicial/
 import { RelatorioDidComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-did/relatorio-did.component';
 import { ProtecaoCustosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/protecao-custos/protecao-custos.component';
 import { DecimalPipe } from '@angular/common';
+import { ComponentsModule } from './components/shared/componentes/components.module';
 
 @NgModule({
   declarations: [
