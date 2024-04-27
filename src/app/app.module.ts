@@ -10,12 +10,12 @@ import { HomeComponent } from './components/home/home.component';
 import { BaseComponent } from './components/shared/base/base.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IndexComponent } from './pages/dashboard/index/index.component';
-import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/list-usuarios.component';
-import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/list-usuario.component';
+import { IndexComponent } from './components/dashboard/index/index.component';
+import { ListUsuariosComponent } from './components/dashboard/usuarios/list-usuarios/list-usuarios.component';
+import { ListUsuarioComponent } from './components/dashboard/usuarios/list-usuario/list-usuario.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AddUpdateUserComponent } from './pages/dashboard/usuarios/add-update-user/add-update-user.component';
+import { AddUpdateUserComponent } from './components/dashboard/usuarios/add-update-user/add-update-user.component';
 
 
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
@@ -71,36 +71,35 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
-import { RelatorioListComponent } from './pages/dashboard/relatorio-list/relatorio-list.component';
-import { ConfiguracoesComponent } from './pages/dashboard/configuracoes/configuracoes.component';
-import { CadastroMainComponent } from './pages/cadastro/cadastro-inicial/cadastro-main/cadastro-main.component';
-import { DadosDescendentesComponent } from './pages/cadastro/cadastro-inicial/dados-descendentes/dados-descendentes.component';
-import { DadosFinanceirosComponent } from './pages/cadastro/cadastro-inicial/dados-financeiros/dados-financeiros.component';
-import { DadosSaudeComponent } from './pages/cadastro/cadastro-inicial/dados-saude/dados-saude.component';
-import { GerandoRelatorioComponent } from './pages/relatorio/relatorio-inicial/gerando-relatorio/gerando-relatorio.component';
-import { RelatorioGeradoSucessoComponent } from './pages/relatorio/relatorio-inicial/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
-import { RelatorioMainComponent } from './pages/relatorio/relatorio-inicial/relatorio-main/relatorio-main.component';
-import { RelatorioCompletoComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/relatorio-completo.component';
-import { RelatorioCinzaCompletoComponent } from './pages/relatorio/relatorio-cinza/relatorio-cinza-completo/relatorio-cinza-completo.component';
-import { RelatorioCinzaMainComponent } from './pages/relatorio/relatorio-cinza/relatorio-cinza-main/relatorio-cinza-main.component';
-import { BeneficiariosComponent } from './pages/cadastro/cadastro-cinza/beneficiarios/beneficiarios.component';
-import { CinzaMainComponent } from './pages/cadastro/cadastro-cinza/cinza-main/cinza-main.component';
-import { DadosFiscaisComponent } from './pages/cadastro/cadastro-cinza/dados-fiscais/dados-fiscais.component';
-import { DeclaracaoPessoalComponent } from './pages/cadastro/cadastro-cinza/declaracao-pessoal/declaracao-pessoal.component';
-import { DocumentacaoComponent } from './pages/cadastro/cadastro-cinza/documentacao/documentacao.component';
-import { EnderecoResidencialComponent } from './pages/cadastro/cadastro-cinza/endereco-residencial/endereco-residencial.component';
-import { FormaPagamentoComponent } from './pages/cadastro/cadastro-cinza/forma-pagamento/forma-pagamento.component';
-import { SaudeAtividadeComponent } from './pages/cadastro/cadastro-cinza/saude-atividade/saude-atividade.component';
-import { DadosFamiliaresComponent } from './pages/cadastro/cadastro-inicial/dados-familiares/dados-familiares.component';
-import { DadosPessoaisComponent } from './pages/cadastro/cadastro-inicial/dados-pessoais/dados-pessoais.component';
-import { DadosProfissionaisComponent } from './pages/cadastro/cadastro-inicial/dados-profissionais/dados-profissionais.component';
-import { AcompanhamentosComponent } from './pages/dashboard/acompanhamentos/acompanhamentos.component';
+import { RelatorioListComponent } from './components/dashboard/relatorio-list/relatorio-list.component';
+import { ConfiguracoesComponent } from './components/dashboard/configuracoes/configuracoes.component';
+import { CadastroMainComponent } from './components/dxpert/cadastro/inicial/cadastro-main/cadastro-main.component';
+import { DadosDescendentesComponent } from './components/dxpert/cadastro/inicial/dados-descendentes/dados-descendentes.component';
+import { DadosFinanceirosComponent } from './components/dxpert/cadastro/inicial/dados-financeiros/dados-financeiros.component';
+import { DadosSaudeComponent } from './components/dxpert/cadastro/inicial/dados-saude/dados-saude.component';
+import { RelatorioGeradoSucessoComponent } from './components/dxpert/relatorio/inicial/relatorio-gerado-sucesso/relatorio-gerado-sucesso.component';
+import { RelatorioMainComponent } from './components/dxpert/relatorio/inicial/relatorio-main/relatorio-main.component';
+import { RelatorioCompletoComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/relatorio-completo.component';
+import { RelatorioCinzaCompletoComponent } from './components/dxpert/relatorio/cinza/relatorio-cinza-completo/relatorio-cinza-completo.component';
+import { RelatorioCinzaMainComponent } from './components/dxpert/relatorio/cinza/relatorio-cinza-main/relatorio-cinza-main.component';
+import { BeneficiariosComponent } from './components/dxpert/cadastro/cinza/beneficiarios/beneficiarios.component';
+import { CinzaMainComponent } from './components/dxpert/cadastro/cinza/cinza-main/cinza-main.component';
+import { DadosFiscaisComponent } from './components/dxpert/cadastro/cinza/dados-fiscais/dados-fiscais.component';
+import { DeclaracaoPessoalComponent } from './components/dxpert/cadastro/cinza/declaracao-pessoal/declaracao-pessoal.component';
+import { DocumentacaoComponent } from './components/dxpert/cadastro/cinza/documentacao/documentacao.component';
+import { EnderecoResidencialComponent } from './components/dxpert/cadastro/cinza/endereco-residencial/endereco-residencial.component';
+import { FormaPagamentoComponent } from './components/dxpert/cadastro/cinza/forma-pagamento/forma-pagamento.component';
+import { SaudeAtividadeComponent } from './components/dxpert/cadastro/cinza/saude-atividade/saude-atividade.component';
+import { DadosFamiliaresComponent } from './components/dxpert/cadastro/inicial/dados-familiares/dados-familiares.component';
+import { DadosPessoaisComponent } from './components/dxpert/cadastro/inicial/dados-pessoais/dados-pessoais.component';
+import { DadosProfissionaisComponent } from './components/dxpert/cadastro/inicial/dados-profissionais/dados-profissionais.component';
+import { AcompanhamentosComponent } from './components/dashboard/acompanhamentos/acompanhamentos.component';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { RelatorioDadosPessoaisComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-dados-pessoais/relatorio-dados-pessoais.component';
-import { RelatorioCalculoPrevidenciarioComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-calculo-previdenciario/relatorio-calculo-previdenciario.component';
-import { RelatorioPercasComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-percas/relatorio-percas.component';
-import { RelatorioSugestaoParaRecuperarComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-sugestao-para-recuperar/relatorio-sugestao-para-recuperar.component';
+import { RelatorioDadosPessoaisComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-dados-pessoais/relatorio-dados-pessoais.component';
+import { RelatorioCalculoPrevidenciarioComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-calculo-previdenciario/relatorio-calculo-previdenciario.component';
+import { RelatorioPercasComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-percas/relatorio-percas.component';
+import { RelatorioSugestaoParaRecuperarComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-sugestao-para-recuperar/relatorio-sugestao-para-recuperar.component';
 import { CurrencyPipe } from '@angular/common';
 
 import { registerLocaleData } from '@angular/common';
@@ -109,12 +108,13 @@ import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
 import { NgChartsModule  } from 'ng2-charts';
-import { RelatorioTermLifeComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-term-life/relatorio-term-life.component';
-import { RelatorioProdutosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-produtos/relatorio-produtos.component';
-import { RelatorioDidComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/relatorio-did/relatorio-did.component';
-import { ProtecaoCustosComponent } from './pages/relatorio/relatorio-inicial/relatorio-completo/componentes/protecao-custos/protecao-custos.component';
+import { RelatorioTermLifeComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-term-life/relatorio-term-life.component';
+import { RelatorioProdutosComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-produtos/relatorio-produtos.component';
+import { RelatorioDidComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-did/relatorio-did.component';
+import { ProtecaoCustosComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/protecao-custos/protecao-custos.component';
 import { DecimalPipe } from '@angular/common';
 import { ComponentsModule } from './components/shared/componentes/components.module';
+import { GerandoRelatorioComponent } from './components/dxpert/relatorio/inicial/gerando-relatorio/gerando-relatorio.component';
 
 @NgModule({
   declarations: [
