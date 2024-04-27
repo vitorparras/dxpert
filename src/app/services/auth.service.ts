@@ -28,13 +28,19 @@ export class AuthService {
 
   deslogar() {
     this.httpClient.post<any>(ApiUrls.Auth + '/Logout', null).subscribe({
-      next: (resposta) => {},
+      next: (resposta) => {
+        if (resposta.success == true) {
+          localStorage.clear();
+          this.router.navigate(['login']);
+          console.log('Deslogado com sucesso:', resposta);
+        }else{
+          console.error('Erro ao deslogar:', resposta);
+        }
+      },
       error: (error) => {
         console.error('Erro ao deslogar:', error);
       }
     });
-    localStorage.clear();
-    this.router.navigate(['login']);
   }
 
   get obterTokenUsuario(): string {

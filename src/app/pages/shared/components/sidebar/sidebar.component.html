@@ -7,11 +7,7 @@
 </div>
 <div class="sidebar-wrapper">
   <ul class="nav">
-    <li
-      routerLinkActive="active"
-      *ngFor="let menuItem of menuItems"
-      class="{{ menuItem.class }} nav-item"
-    >
+    <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{ menuItem.class }} nav-item">
       <a [routerLink]="[menuItem.path]">
         <i class="{{ menuItem.icon }}"></i>
         <p>{{ menuItem.title }}</p>
@@ -19,10 +15,7 @@
     </li>
     <li>
       <a (click)="deslogar()">
-        <i
-          class="fa-solid fa-arrow-right-from-bracket"
-          (click)="deslogar()"
-        ></i>
+        <i class="fa-solid fa-arrow-right-from-bracket" (click)="deslogar()"></i>
         <p>Sair</p>
       </a>
     </li>
