@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { localStorageVarNames } from 'src/environments/localStorageVarNames';
 @Component({
-  selector: 'app-relatorio-list',
-  templateUrl: './relatorio-list.component.html',
-  styleUrls: ['./relatorio-list.component.css']
+  selector: 'app-simulacoes',
+  templateUrl: './simulacoes.component.html',
+  styleUrls: ['./simulacoes.component.css']
 })
-export class RelatorioListComponent {
+export class SimulacoesComponent {
   cads: any[] = [];
   selectedName: string = '';
 

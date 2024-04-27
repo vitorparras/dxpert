@@ -1,5 +1,6 @@
+import { UsuarioService } from './../../../services/usuario.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { UsuarioService } from 'src/app/services/usuario.service';
+
 import * as bootstrap from 'bootstrap';
 
 @Component({
@@ -11,7 +12,7 @@ export class ListUsuariosComponent implements OnInit {
   users: any[] = [];
   selectedName: string = '';
 
-  constructor(private userService: UsuarioService) {}
+  constructor(private userService: UsuarioService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -49,9 +50,9 @@ export class ListUsuariosComponent implements OnInit {
   confirmDeleteUser(): void {
     this.userService.deleteUser(this.selectedUserId).subscribe(
       () =>
-        (this.users = this.users.filter(
-          (user) => user.id !== this.selectedUserId
-        )),
+      (this.users = this.users.filter(
+        (user) => user.id !== this.selectedUserId
+      )),
       (error) => console.error(error)
     );
   }

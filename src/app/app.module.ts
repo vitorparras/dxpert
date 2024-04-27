@@ -8,8 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EstatisticasComponent } from './components/dashboard/estatisticas/estatisticas.component';
-import { ListUsuariosComponent } from './components/dashboard/usuarios/list-usuarios/list-usuarios.component';
-import { ListUsuarioComponent } from './components/dashboard/usuarios/list-usuario/list-usuario.component';
+import { UsuariosComponent } from './components/dashboard/usuarios/usuarios.component';
+import { MeuUsuarioComponent } from './components/dashboard/meu-usuario/meu-usuario.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddUpdateUserComponent } from './components/dashboard/usuarios/add-update-user/add-update-user.component';
@@ -68,7 +68,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
-import { RelatorioListComponent } from './components/dashboard/relatorio-list/relatorio-list.component';
+import { SimulacoesComponent } from './components/dashboard/simulacoes/simulacoes.component';
 import { ConfiguracoesComponent } from './components/dashboard/configuracoes/configuracoes.component';
 import { CadastroMainComponent } from './components/dxpert/cadastro/inicial/cadastro-main/cadastro-main.component';
 import { DadosDescendentesComponent } from './components/dxpert/cadastro/inicial/dados-descendentes/dados-descendentes.component';
@@ -112,18 +112,18 @@ import { ProtecaoCustosComponent } from './components/dxpert/relatorio/inicial/r
 import { DecimalPipe } from '@angular/common';
 import { ComponentsModule } from './components/dashboard/shared/components.module';
 import { GerandoRelatorioComponent } from './components/dxpert/relatorio/inicial/gerando-relatorio/gerando-relatorio.component';
-import { IndexbaseComponent } from './components/dashboard/indexbase/indexbase.component';
+import { IndexComponent } from './components/dashboard/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    IndexbaseComponent,
+    IndexComponent,
     EstatisticasComponent,
 
     //usuarios
-    ListUsuariosComponent,
-    ListUsuarioComponent,
+    UsuariosComponent,
+    MeuUsuarioComponent,
     AddUpdateUserComponent,
     DadosPessoaisComponent,
     DadosFamiliaresComponent,
@@ -142,7 +142,7 @@ import { IndexbaseComponent } from './components/dashboard/indexbase/indexbase.c
     SaudeAtividadeComponent,
     CinzaMainComponent,
     CadastroMainComponent,
-    RelatorioListComponent,
+    SimulacoesComponent,
     RelatorioGeradoSucessoComponent,
     ConfiguracoesComponent,
     RelatorioCompletoComponent,
