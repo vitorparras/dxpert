@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./gerando-relatorio.component.css']
 })
 export class GerandoRelatorioComponent {
-  
+
   constructor(private router: Router) {}
-  
+
   ngOnInit(): void {
-    
+
     setTimeout(() => {
       this.router.navigate(['/relatorio/gerado']);
     }, 5000);

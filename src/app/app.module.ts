@@ -6,9 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 
-import { IndexbaseComponent } from './components/dashboard/indexbase/indexbase.component';
-import { IndexbaseComponent } from './components/shared/base/base.component';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EstatisticasComponent } from './components/dashboard/estatisticas/estatisticas.component';
 import { ListUsuariosComponent } from './components/dashboard/usuarios/list-usuarios/list-usuarios.component';
@@ -113,14 +110,14 @@ import { RelatorioProdutosComponent } from './components/dxpert/relatorio/inicia
 import { RelatorioDidComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/relatorio-did/relatorio-did.component';
 import { ProtecaoCustosComponent } from './components/dxpert/relatorio/inicial/relatorio-completo/components/protecao-custos/protecao-custos.component';
 import { DecimalPipe } from '@angular/common';
-import { ComponentsModule } from './components/shared/componentes/components.module';
+import { ComponentsModule } from './components/dashboard/shared/components.module';
 import { GerandoRelatorioComponent } from './components/dxpert/relatorio/inicial/gerando-relatorio/gerando-relatorio.component';
+import { IndexbaseComponent } from './components/dashboard/indexbase/indexbase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    IndexbaseComponent,
     IndexbaseComponent,
     EstatisticasComponent,
 
