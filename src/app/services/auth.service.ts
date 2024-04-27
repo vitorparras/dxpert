@@ -30,15 +30,17 @@ export class AuthService {
     this.httpClient.post<any>(ApiUrls.Auth + '/Logout', null).subscribe({
       next: (resposta) => {
         if (resposta.success == true) {
-          localStorage.clear();
-          this.router.navigate(['login']);
           console.log('Deslogado com sucesso:', resposta);
         }else{
           console.error('Erro ao deslogar:', resposta);
         }
+        localStorage.clear();
+        this.router.navigate(['login']);
       },
       error: (error) => {
         console.error('Erro ao deslogar:', error);
+        localStorage.clear();
+        this.router.navigate(['login']);
       }
     });
   }

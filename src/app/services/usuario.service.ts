@@ -24,7 +24,7 @@ export class UsuarioService {
   }
 
   findUser(id: number): Observable<any> {
-    return this.httpClient.get<any>(`${ApiUrls.Usuario}/Find?id=${id}`)
+    return this.httpClient.get<any>(`${ApiUrls.Usuario}/FindById?id=${id}`)
       .pipe(catchError(this.handleError));
   }
 
