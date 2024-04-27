@@ -7,22 +7,22 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UsuarioService } from '../usuario.service';
-import { environment } from 'src/environments/environments';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs/internal/observable/throwError';
+import { AuthService } from '../auth.service';
+import { ApiUrls } from 'src/environments/environments';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private authService: AuthService) { }
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this.usuarioService.obterTokenUsuario;
+    const token = this.authService.obterTokenUsuario;
     const requestUrl: Array<any> = request.url.split('/');
-    const apiUrl: Array<any> = environment.apiUrl.split('/');
+    const apiUrl: Array<any> = ApiUrls.Base.split('/');
 
     if (token && requestUrl[2] === apiUrl[2]) {
       request = request.clone({
@@ -34,7 +34,7 @@ export class TokenInterceptor implements HttpInterceptor {
       return next.handle(request).pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
-            this.usuarioService.deslogar();
+            this.authService.deslogar();
           }
           return throwError(error.message);
         })

@@ -1,35 +1,36 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable} from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environments';
-import { localStorageVarNames } from 'src/environments/localStorageVarNames';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { ApiUrls } from 'src/environments/environments';
 import { IUsuario } from '../interfaces/IUsuario';
-const apiUrlAuth = environment.apiUrl + 'Auth';
+import { localStorageVarNames } from 'src/environments/localStorageVarNames';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   logar(usuario: IUsuario): Observable<any> {
-    return this.httpClient.post<any>(apiUrlAuth + '/Login', usuario).pipe(
+    return this.httpClient.post<any>(ApiUrls.Auth + '/Login', usuario).pipe(
       tap((resposta) => {
         if (resposta.success == true) {
-          localStorage.setItem(localStorageVarNames.Token ,resposta.data['token']);
-          localStorage.setItem(localStorageVarNames.NomeUsuario ,resposta.data['nome']);
-          localStorage.setItem(localStorageVarNames.IdUser , resposta.data['idUser']);
+          localStorage.setItem(localStorageVarNames.Token, resposta.data['token']);
+          localStorage.setItem(localStorageVarNames.NomeUsuario, resposta.data['nome']);
+          localStorage.setItem(localStorageVarNames.IdUser, resposta.data['idUser']);
         }
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
   deslogar() {
-    this.httpClient.post<any>(apiUrlAuth + '/Logout', null).subscribe({
-      next: (resposta) => {
+    this.httpClient.post<any>(ApiUrls.Auth + '/Logout', null).subscribe({
+      next: (resposta) => {},
+      error: (error) => {
+        console.error('Erro ao deslogar:', error);
       }
     });
     localStorage.clear();
@@ -42,5 +43,16 @@ export class AuthService {
 
   get logado(): boolean {
     return localStorage.getItem(localStorageVarNames.Token) ? true : false;
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Erro desconhecido';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Erro: ${error.error.message}`;
+    } else {
+      errorMessage = `Código do erro: ${error.status}, mensagem: ${error.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }

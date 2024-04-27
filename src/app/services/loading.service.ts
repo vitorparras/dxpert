@@ -17,4 +17,8 @@ export class LoadingService {
   hide() {
     this._isLoading.next(false);
   }
+
+  get isLoading(): boolean {
+    return this._isLoading.value;
+  }
 }

@@ -5,7 +5,6 @@ import { ListUsuarioComponent } from './pages/dashboard/usuarios/list-usuario/li
 import { ListUsuariosComponent } from './pages/dashboard/usuarios/list-usuarios/list-usuarios.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { BaseComponent } from './pages/shared/base/base.component';
 import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autenticado.guard';
 import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
 import { CadastroMainComponent } from './pages/cadastro/cadastro-inicial/cadastro-main/cadastro-main.component';

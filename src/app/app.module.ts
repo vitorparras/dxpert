@@ -160,12 +160,6 @@ import { DecimalPipe } from '@angular/common';
     RelatorioProdutosComponent,
     RelatorioDidComponent,
     ProtecaoCustosComponent
-
-    // cadastros
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -185,7 +179,7 @@ import { DecimalPipe } from '@angular/common';
     MatCardModule,
     MatSidenavModule,
     MatSnackBarModule,
-    NgxMaskDirective, 
+    NgxMaskDirective,
     NgxMaskPipe,
     A11yModule,
     CdkAccordionModule,

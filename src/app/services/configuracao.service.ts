@@ -1,21 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environments';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ApiUrls } from 'src/environments/environments';
 
-const apiUrlUsuario = environment.apiUrl + 'Configuracao';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfiguracaoService {
-
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get(apiUrlUsuario);
+  getAll(): Observable<any> {
+    return this.http.get<any>(ApiUrls.configuracao)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  update(config: any) {
-    return this.http.put(`${apiUrlUsuario}`, config);
+  update(config: any): Observable<any> {
+    return this.http.put<any>(ApiUrls.configuracao, config)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Erro desconhecido';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Erro: ${error.error.message}`;
+    } else {
+      errorMessage = `Código do erro: ${error.status}, mensagem: ${error.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }

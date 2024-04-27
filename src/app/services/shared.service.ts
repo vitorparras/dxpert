@@ -46,6 +46,4 @@ export class SharedService {
 
     return Number(numeroConvertido);
   }
-
-
 }

@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
       this.sucesso = response.success;
       if (response.success) {
         this.message = 'Login realizado com sucesso!';
-        this.messageBemVindo = 'Bem vindo ' + response.nome;
+        this.messageBemVindo = 'Bem vindo ' + response.data.nome;
         setTimeout(() => {
           btn?.click();
           setTimeout(() => {

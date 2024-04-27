@@ -1,84 +1,50 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environments';
-import { localStorageVarNames } from 'src/environments/localStorageVarNames';
-import { IUsuario } from '../interfaces/IUsuario';
-const apiUrlUsuario = environment.apiUrl + 'Usuario';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ApiUrls } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
+
   constructor(private httpClient: HttpClient, private router: Router) {}
 
-  logar(usuario: IUsuario): Observable<any> {
-    return this.httpClient.post<any>(apiUrlUsuario + '/Login', usuario).pipe(
-      tap((resposta) => {
-        if (resposta.sucesso == true) {
-          localStorage.setItem(localStorageVarNames.Token ,resposta['token']);
-          localStorage.setItem(localStorageVarNames.NomeUsuario ,resposta['nome']);
-          localStorage.setItem(localStorageVarNames.IdUser , resposta['idUser']);
-        }
-      })
-    );
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return throwError('Something bad happened; please try again later.');
   }
 
-  deslogar() {
-    this.httpClient.post<any>(apiUrlUsuario + '/Logout', null).subscribe({
-      next: (resposta) => {
-      }
-    });
-    localStorage.clear();
-    this.router.navigate(['login']);
-  }
-
-  get obterTokenUsuario(): string {
-    return localStorage.getItem(localStorageVarNames.Token) ?? '';
-  }
-
-  get logado(): boolean {
-    return localStorage.getItem(localStorageVarNames.Token) ? true : false;
-  }
-
-
-
-  findUser(id:number): Observable<any> {
-    return this.httpClient.get<any>(apiUrlUsuario + '/Find?id='+id);
+  findUser(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${ApiUrls.Usuario}/Find?id=${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   getUsers(): Observable<any[]> {
-    return this.httpClient.get<any[]>(apiUrlUsuario + '/List');
+    return this.httpClient.get<any[]>(`${ApiUrls.Usuario}/List`)
+      .pipe(catchError(this.handleError));
   }
 
-  // Função para excluir um usuário pelo ID
   deleteUser(usuario: number): Observable<any> {
-    return this.httpClient.delete<any>(apiUrlUsuario + '/Delete/'+usuario);
+    return this.httpClient.delete<any>(`${ApiUrls.Usuario}/Delete/${usuario}`)
+      .pipe(catchError(this.handleError));
   }
 
-  // Função para editar um usuário pelo ID
   editUser(userData: any): Observable<any> {
-    return this.httpClient.put<any>(apiUrlUsuario + '/Edit', userData);
+    return this.httpClient.put<any>(`${ApiUrls.Usuario}/Edit`, userData)
+      .pipe(catchError(this.handleError));
   }
 
-  // Função para ADD um usuário pelo ID
   addUser(userData: any): Observable<any> {
-    return this.httpClient.post<any>(apiUrlUsuario + '/Add', userData);
+    return this.httpClient.post<any>(`${ApiUrls.Usuario}/Add`, userData)
+      .pipe(catchError(this.handleError));
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
