@@ -1,10 +1,6 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { IUserData, UserResponse } from 'src/app/interfaces/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -12,57 +8,49 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './add-update-user.component.html',
   styleUrls: ['./add-update-user.component.css'],
 })
-export class AddUpdateUserComponent {
+export class AddUpdateUserComponent implements OnInit {
 
   @Output() userAdded = new EventEmitter<void>();
   @Output() userEdited = new EventEmitter<void>();
   @Output() userReloaded = new EventEmitter<void>();
 
   @Input() isEditMode: boolean = false;
+  @Input() userId: number | null = null;
 
-  
-  private _userId: number | null = null;
-
-  @Input()
-  set userId(value: number | null) {
-    this._userId = value;
-    this.loadUser();
-  }
-
-  get userId(): number | null {
-    return this._userId;
-  }
-
-
-  editUserId: number | null = null;
-
-  public user = {
+  public user: IUserData = {
     id: 0,
     nome: '',
     email: '',
     telefone: '',
+    permissao: 0,
     senha: '',
     senhaConfirm: '',
-    permissao: 0, // 0 = Usuário, 1 = Administrador
   };
 
   passwordMismatch = false;
 
-  constructor(private userService: UsuarioService) {}
+  constructor(private userService: UsuarioService) { }
 
-  loadUser(): void {
-    if (this.userId !== null && this.userId != 0) {
+  ngOnInit(): void {
+    if (this.userId && this.userId !== 0) {
       this.userService.findUser(this.userId).subscribe(
-        (response) => {
-          this.user = {
-            ...this.user,
-            email: response.email,
-            nome: response.nome,
-            telefone: response.telefone,
-            permissao: response.permissao,
-            id: response.id,
-          };
-          this.isEditMode = true;
+        (response: UserResponse) => {
+          if (response.success) {
+            const userData = response.data;
+            this.user = {
+              ...this.user,
+              id: userData.id,
+              nome: userData.nome,
+              email: userData.email,
+              telefone: userData.telefone,
+              permissao: userData.permissao,
+            };
+            this.user.senha = '';
+            this.user.senhaConfirm = '';
+            this.isEditMode = true;
+          } else {
+            console.error(response.message);
+          }
         },
         (error) => console.error(error)
       );
@@ -72,21 +60,20 @@ export class AddUpdateUserComponent {
         nome: '',
         email: '',
         telefone: '',
+        permissao: 0,
         senha: '',
         senhaConfirm: '',
-        permissao: 0,
       };
       this.isEditMode = false;
     }
   }
+
 
   validatePassword(): void {
     this.passwordMismatch = this.user.senha !== this.user.senhaConfirm;
   }
 
   addUser(form: NgForm): void {
-    this.user.permissao = parseInt(this.user.permissao.toString(), 10);
-
     if (this.passwordMismatch) {
       return;
     }
@@ -95,8 +82,9 @@ export class AddUpdateUserComponent {
       this.userService.editUser(this.user).subscribe(
         () => {
           this.userEdited.emit();
-          form.resetForm();
-          this.reloadUser();
+          this.user.senha = '';
+          this.user.senhaConfirm = '';
+          this.ngOnInit();
         },
         (error) => console.error(error)
       );
@@ -104,18 +92,10 @@ export class AddUpdateUserComponent {
       this.userService.addUser(this.user).subscribe(
         () => {
           this.userAdded.emit();
-          form.resetForm();
+          form.resetForm(); // Reseta o formulário após a adição de um novo usuário
         },
         (error) => console.error(error)
       );
     }
   }
-
-  reloadUser() {
-    if (this.userId !== null && this.userId !== 0) {
-      this.loadUser();
-    }
-  }
-
-
 }

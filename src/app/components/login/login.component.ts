@@ -2,7 +2,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
-import { IUsuario } from 'src/app/interfaces/IUsuario';
+import { IUsuario } from 'src/app/interfaces/Usuario';
 
 @Component({
   selector: 'app-login',

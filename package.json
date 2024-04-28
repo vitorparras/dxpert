@@ -31,6 +31,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "compass-mixins": "^0.12.12",
     "core-js": "3.30.1",
+    "cors": "^2.8.5",
     "html2canvas": "^1.4.1",
     "jquery": "^3.7.1",
     "jquery-ui": "^1.13.3",

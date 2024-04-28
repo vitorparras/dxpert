@@ -9,7 +9,7 @@ import { localStorageVarNames } from 'src/environments/localStorageVarNames';
   styleUrls: ['./meu-usuario.component.css'],
 })
 export class MeuUsuarioComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   get selectedUserId(): number {
     return this._selectedUserId;
@@ -26,7 +26,6 @@ export class MeuUsuarioComponent implements OnInit {
   }
 
   reloadUser() {
-    this.selectedUserId =
-      parseInt(localStorage.getItem(localStorageVarNames.IdUser) ?? '') ?? 0;
+    this.selectedUserId = parseInt(localStorage.getItem(localStorageVarNames.IdUser) ?? '') ?? 0;
   }
 }

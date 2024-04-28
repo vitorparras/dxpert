@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ApiUrls } from 'src/environments/environments';
-import { IUsuario } from '../interfaces/IUsuario';
 import { localStorageVarNames } from 'src/environments/localStorageVarNames';
+import { IUsuario } from '../interfaces/Usuario';
 
 @Injectable({
   providedIn: 'root',
